@@ -4,6 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>INNER CIRCLE™ — Uma conversa pode mudar uma vida</title>
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/tZ3CJ40n/favicon.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="https://i.postimg.cc/tZ3CJ403/icon-192.png">
+  <link rel="icon" sizes="512x512" href="https://i.postimg.cc/34XJNxMj/icon-512.png">
+  <meta name="theme-color" content="#050505">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="INNER CIRCLE">
+  <meta property="og:title" content="INNER CIRCLE™">
+  <meta property="og:description" content="Uma conversa pode mudar uma vida.">
+  <meta property="og:image" content="https://i.postimg.cc/bDxNrwXH/icon-1024.png">
+  <meta property="og:type" content="website">
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,10 +53,6 @@
 
   <div id="toast" class="fixed top-24 right-6 z-50 transform translate-x-96 transition-transform duration-300 bg-brandDark border border-brandGold/30 p-4 rounded-xl shadow-2xl max-w-sm hidden"><div><h4 class="font-bold text-sm text-brandGold" id="toast-title">Notificação</h4><p class="text-xs text-brandGray mt-1" id="toast-message">Mensagem...</p></div></div>
 
-  <div id="api-modal" class="fixed inset-0 z-50 bg-brandBlack/80 backdrop-blur-md flex items-center justify-center p-6 hidden">
-    <div class="bg-brandDark border border-brandGold/30 p-8 rounded-3xl max-w-md w-full space-y-6 relative"><button onclick="toggleApiModal()" class="absolute top-4 right-4 text-brandGray hover:text-white text-xl">&times;</button><h3 class="font-serif text-2xl font-bold text-white">Configuração de IA Avançada</h3><p class="text-xs text-brandGray">Opcional. Para produto público, usa backend/Supabase Edge Function para proteger a chave.</p><input type="password" id="gemini-key-input" placeholder="AIzaSy..." class="w-full bg-brandCard border border-white/10 p-3 rounded-xl text-white outline-none focus:border-brandGold text-sm"><div class="flex space-x-3"><button onclick="saveApiKey()" class="flex-grow py-3 bg-brandGold text-brandBlack font-bold rounded-xl text-xs hover:bg-brandGold-light transition">Ativar Gemini AI</button><button onclick="clearApiKey()" class="px-4 py-3 bg-white/5 text-brandGray rounded-xl text-xs hover:text-white transition">Limpar</button></div></div>
-  </div>
-
   <div id="confirm-modal" class="fixed inset-0 z-50 bg-brandBlack/85 backdrop-blur-sm flex items-center justify-center p-6 hidden"><div class="bg-brandDark border border-red-500/30 p-8 rounded-3xl max-w-md w-full space-y-6 text-center"><div class="w-16 h-16 rounded-full bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-500 mx-auto text-2xl">⚠</div><h3 class="font-serif text-2xl font-bold text-white">Tens a certeza?</h3><p class="text-sm text-brandGray">Isto apaga todos os inscritos guardados neste navegador.</p><div class="flex gap-4"><button onclick="confirmClearList()" class="flex-grow py-3 bg-red-800 text-white font-bold rounded-xl text-xs hover:bg-red-700 transition">Apagar</button><button onclick="closeClearConfirmModal()" class="flex-grow py-3 bg-white/5 text-brandGray rounded-xl text-xs hover:text-white transition">Cancelar</button></div></div></div>
 
   <main id="view-landing" class="flex-grow">
@@ -72,8 +80,7 @@
 let state={view:'landing',step:1,profile:{},match:null,history:[]};
 const icebreakerQuestions=["Qual foi a decisão mais difícil que tomaste nos últimos cinco anos?","Se pudesses resolver apenas um problema do mundo, qual escolherias?","Que conversa mudou a tua vida?","O que gostarias que as pessoas percebessem sobre ti mais rapidamente?","Qual é o teu maior objetivo atualmente?","O que aprendeste com o teu maior fracasso?","Qual foi o momento que mais te transformou como pessoa?"];
 function showView(viewId){['landing','questionnaire','matching','dashboard','waitlist','admin'].forEach(v=>document.getElementById('view-'+v).classList.add('hidden'));document.getElementById('view-'+viewId).classList.remove('hidden');state.view=viewId;window.location.hash=viewId;if(viewId==='admin')carregarLista();window.scrollTo({top:0,behavior:'smooth'});}window.addEventListener('load',()=>{const cached=localStorage.getItem('innerCirclePerfil');if(cached){try{state.profile=JSON.parse(cached);}catch(e){}}const hash=window.location.hash.replace('#','');showView(['landing','questionnaire','matching','dashboard','waitlist','admin'].includes(hash)?hash:'landing');});
-function toggleApiModal(){document.getElementById('api-modal').classList.toggle('hidden')}function saveApiKey(){const key=document.getElementById('gemini-key-input').value.trim();if(!key){showToast('Erro','Insere uma chave válida.','warning');return;}state.apiKey=key;localStorage.setItem('ic_gemini_key',key);document.getElementById('api-status-text').innerText='Gemini AI Integrada';toggleApiModal();showToast('Chave Guardada','Gemini integrada.','success')}function clearApiKey(){state.apiKey='';localStorage.removeItem('ic_gemini_key');document.getElementById('gemini-key-input').value='';document.getElementById('api-status-text').innerText='Motor IA Inteligente';toggleApiModal();showToast('Chave Removida','Motor local ativo.','info')}
-function startQuestionnaire(){const cached=localStorage.getItem('innerCirclePerfil');if(cached){try{const p=JSON.parse(cached);['nome','local','fase','procura','objetivo','tipoPessoa','oferta','temas','energia'].forEach(k=>{const el=document.getElementById('q-'+k);if(el)el.value=p[k]||el.value||''})}catch(e){}}state.step=1;updateQuestionnaireStepUI();showView('questionnaire')}function updateQuestionnaireStepUI(){['1','2','3'].forEach(n=>document.getElementById('form-step-'+n).classList.add('hidden'));document.getElementById('form-step-'+state.step).classList.remove('hidden');document.getElementById('progress-bar-fill').style.width=((state.step/3)*100)+'%';const back=document.getElementById('form-back-btn'),next=document.getElementById('form-next-btn');back.disabled=state.step===1;back.classList.toggle('opacity-50',state.step===1);next.innerText=state.step===3?'Gerar Conexão Ideal':'Seguinte →'}function handleStepBack(){if(state.step>1){state.step--;updateQuestionnaireStepUI()}}
+function updateQuestionnaireStepUI(){['1','2','3'].forEach(n=>document.getElementById('form-step-'+n).classList.add('hidden'));document.getElementById('form-step-'+state.step).classList.remove('hidden');document.getElementById('progress-bar-fill').style.width=((state.step/3)*100)+'%';const back=document.getElementById('form-back-btn'),next=document.getElementById('form-next-btn');back.disabled=state.step===1;back.classList.toggle('opacity-50',state.step===1);next.innerText=state.step===3?'Gerar Conexão Ideal':'Seguinte →'}function handleStepBack(){if(state.step>1){state.step--;updateQuestionnaireStepUI()}}
 function handleStepNext(){if(state.step===1){const nome=qv('nome'),local=qv('local'),fase=qv('fase');if(!nome||!local||!fase){showToast('Aviso','Preenche nome, localização e fase atual.','warning');return;}Object.assign(state.profile,{nome,local,fase});state.step=2;updateQuestionnaireStepUI();return;}if(state.step===2){const procura=qv('procura'),objetivo=qv('objetivo'),tipoPessoa=qv('tipoPessoa');if(!objetivo||!tipoPessoa){showToast('Aviso','Preenche objetivo e tipo de pessoa.','warning');return;}Object.assign(state.profile,{procura,objetivo,tipoPessoa});state.step=3;updateQuestionnaireStepUI();return;}const oferta=qv('oferta'),temas=qv('temas'),energia=qv('energia');if(!oferta||!temas){showToast('Aviso','Preenche oferta e temas.','warning');return;}Object.assign(state.profile,{oferta,temas,energia});localStorage.setItem('innerCirclePerfil',JSON.stringify(state.profile));triggerMatchmaker()}function qv(id){return document.getElementById('q-'+id).value.trim?document.getElementById('q-'+id).value.trim():document.getElementById('q-'+id).value}
 async function triggerMatchmaker(){showView('matching');const status=document.getElementById('matching-status-log');for(const msg of ['A extrair vetores semânticos...','A filtrar perfis complementares...','A validar energia humana...','A preparar quebra-gelo ideal...']){await new Promise(r=>setTimeout(r,600));status.innerText=msg}const m=computeHeuristicMatch(state.profile);state.match=m;populateDashboardUI(m);showView('dashboard');showToast('Match Encontrado',`Ligação diária ativa com ${m.nome}.`,'success')}
 function computeHeuristicMatch(profile){const score=[91,92,93,94,95,96,97,98][Math.floor(Math.random()*8)];const pool={"Estratégica e profissional":{nome:'Guilherme Sampaio',idade:37,profissao:'Venture Builder & Estratega',localidade:'Porto, Portugal',sobre_mim:'Ajudo equipas de alta performance a escalar ideias tecnológicas sem perder o foco na utilidade real.',compatibilidade_percentagem:score,estilo_comunicacao:'Estratégico e pragmático.'},"Criativa e inspiradora":{nome:'Mariana Alvim',idade:31,profissao:'Designer de Interações & Artista Conceptual',localidade:'Braga, Portugal',sobre_mim:'Desenho espaços imersivos e interfaces que exploram presença humana no mundo digital.',compatibilidade_percentagem:score,estilo_comunicacao:'Criativo e conceptual.'},"Profunda e emocional":{nome:'Vasco Portela',idade:34,profissao:'Investigador de Ciência Cognitiva & Autor',localidade:'Coimbra, Portugal',sobre_mim:'Exploro os limites da atenção humana e o impacto do isolamento digital nas conexões profundas.',compatibilidade_percentagem:score,estilo_comunicacao:'Filosófico e reflexivo.'}};let result=pool[profile.energia]||pool['Profunda e emocional'];result.quebra_gelo_sugerido=icebreakerQuestions[Math.floor(Math.random()*icebreakerQuestions.length)];return result}
@@ -84,33 +91,5 @@ function handleWaitlistFormSubmit(e){e.preventDefault();const membro={nome:docum
 function carregarLista(){const dados=JSON.parse(localStorage.getItem('innerCircleWaitlist'))||[],wrap=document.getElementById('admin-lista');if(!dados.length){wrap.innerHTML='<div class="text-center py-20 border border-white/5 bg-brandCard/40 rounded-3xl"><p class="text-brandGray text-sm">Ainda não há inscritos.</p></div>';return;}wrap.innerHTML=`<div class="text-sm font-semibold text-brandGold uppercase tracking-wider mb-2">Total: ${dados.length}</div>`;[...dados].reverse().forEach(m=>{const card=document.createElement('div');card.className='bg-brandCard border border-white/10 p-6 rounded-2xl space-y-3';card.innerHTML=`<div><strong class="text-white text-base font-serif">${escapeHtml(m.nome||'Sem nome')}</strong><div class="text-xs text-brandGray mt-0.5">${escapeHtml(m.email||'Sem email')}</div></div><span class="text-[10px] bg-brandGold/10 text-brandGold font-bold px-2.5 py-1 rounded-full border border-brandGold/25 uppercase tracking-wide inline-block">${escapeHtml(m.perfil||'Outro')}</span><div class="text-xs text-brandGray leading-relaxed border-t border-white/5 pt-3"><span class="font-bold text-brandGold block mb-1">Motivo:</span>"${escapeHtml(m.motivo||'-')}"</div><div class="text-[9px] text-brandMuted text-right">${m.data?new Date(m.data).toLocaleString('pt-PT'):'-'}</div>`;wrap.appendChild(card)})}function exportarCSV(){const dados=JSON.parse(localStorage.getItem('innerCircleWaitlist'))||[];if(!dados.length){showToast('Aviso','Não há dados.','warning');return;}const csv=[['Nome','Email','Perfil','Motivo','Data'],...dados.map(m=>[m.nome,m.email,m.perfil,m.motivo,m.data])].map(l=>l.map(c=>`"${String(c||'').replace(/"/g,'""')}"`).join(',')).join('\n');const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='inner-circle-waitlist.csv';a.click();URL.revokeObjectURL(url)}function openClearConfirmModal(){document.getElementById('confirm-modal').classList.remove('hidden')}function closeClearConfirmModal(){document.getElementById('confirm-modal').classList.add('hidden')}function confirmClearList(){localStorage.removeItem('innerCircleWaitlist');carregarLista();closeClearConfirmModal();showToast('Lista apagada','Dados locais removidos.','success')}
 function showToast(title,message,type='info'){const t=document.getElementById('toast');document.getElementById('toast-title').innerText=title;document.getElementById('toast-message').innerText=message;t.classList.remove('hidden','translate-x-96');setTimeout(()=>{t.classList.add('translate-x-96');setTimeout(()=>t.classList.add('hidden'),300)},3500)}
 </script>
-
-<script>
-// FALLBACK FIX — garante que o botão "Encontrar Conexão" funciona no GitHub Pages
-window.addEventListener('DOMContentLoaded', function () {
-  window.startQuestionnaire = window.startQuestionnaire || function () {
-    window.location.hash = 'questionnaire';
-    document.querySelectorAll('main[id^="view-"]').forEach(function (el) {
-      el.classList.add('hidden');
-    });
-    var q = document.getElementById('view-questionnaire');
-    if (q) q.classList.remove('hidden');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  document.querySelectorAll('button').forEach(function (btn) {
-    var text = (btn.textContent || '').toLowerCase();
-    if (text.includes('encontrar conexão') || text.includes('encontrar a minha conexão') || text.includes('começar agora')) {
-      btn.addEventListener('click', function (e) {
-        e.preventDefault();
-        if (typeof window.startQuestionnaire === 'function') {
-          window.startQuestionnaire();
-        }
-      });
-    }
-  });
-});
-</script>
-
 </body>
 </html>
