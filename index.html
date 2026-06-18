@@ -71,16 +71,18 @@
 
   <main id="view-dashboard" class="hidden flex-grow py-8 px-6 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch"><div class="lg:col-span-5 bg-brandDark border border-brandGold/25 rounded-3xl p-6 md:p-8 flex flex-col justify-between space-y-6 relative overflow-hidden"><div><span class="text-[10px] text-brandGold tracking-widest uppercase font-extrabold px-3 py-1 border border-brandGold/40 rounded-full bg-brandGold/5 inline-block">INNER CIRCLE™ · MATCH DETECTADO</span><h2 id="match-view-name" class="font-serif text-2xl sm:text-3xl font-bold text-white mt-3">Match</h2><p id="match-view-role" class="text-brandGray text-xs sm:text-sm mt-0.5">Perfil</p></div><div class="text-5xl font-extrabold text-brandGold font-serif" id="match-view-compat">94%</div><div class="bg-brandGold/5 border border-brandGold/25 p-5 rounded-2xl space-y-3"><h3 class="text-sm font-bold text-brandGold uppercase tracking-wider">Perfil de Conexão</h3><p id="match-view-bio" class="text-xs sm:text-sm text-white/90 leading-relaxed"></p><p id="match-view-interesses" class="text-xs text-brandGray"></p><p id="match-view-energia" class="text-xs text-brandGray"></p></div><div class="bg-[#111] p-5 rounded-xl border border-white/5"><h3 class="text-xs font-bold text-brandGold uppercase tracking-wider mb-2">💬 Quebra-gelo sugerido pela IA</h3><p id="match-view-quebraGelo" class="text-xs sm:text-sm text-white italic leading-relaxed"></p><button onclick="useSuggestedIcebreaker()" class="mt-3 text-[10px] text-brandGold hover:text-white font-semibold underline block transition">Usar na conversa</button></div><div class="flex gap-3 flex-wrap"><button onclick="startQuestionnaire()" class="px-5 py-3 bg-brandGold hover:bg-brandGold-light text-brandBlack font-bold rounded-xl text-xs transition duration-200">Nova Análise</button><button onclick="showView('waitlist')" class="px-5 py-3 border border-white/10 text-white rounded-xl text-xs hover:bg-white/5 transition duration-200">Lista Premium</button></div></div><div class="lg:col-span-7 bg-brandDark border border-white/10 rounded-3xl flex flex-col justify-between overflow-hidden min-h-[550px] lg:min-h-[600px] relative"><div class="bg-brandCard/90 border-b border-white/5 px-6 py-4 flex items-center justify-between"><div><h3 class="text-sm font-bold text-white" id="chat-active-name">Match</h3><p class="text-[9px] text-brandMuted uppercase tracking-wider">Sala aberta por 24 horas</p></div><button onclick="exportChatTranscript()" class="text-xs text-brandGold hover:text-white font-semibold border border-brandGold/20 px-3 py-1.5 rounded-full bg-brandGold/5 transition duration-200">Copiar Conversa</button></div><div id="chat-message-wall" class="flex-grow p-6 overflow-y-auto space-y-4 max-h-[400px] lg:max-h-[500px]"><div class="bg-brandGold/5 border border-brandGold/15 p-4 rounded-xl text-center space-y-1 max-w-md mx-auto"><span class="text-[9px] text-brandGold uppercase tracking-widest font-extrabold">Afinidade Encontrada</span><p class="text-xs text-brandGray">O algoritmo cruzou ambições e determinou que vocês devem conversar hoje.</p></div><div class="flex items-start space-x-3 max-w-[85%]"><div class="w-8 h-8 rounded-full border border-brandGold/40 flex-shrink-0 flex items-center justify-center font-serif text-brandGold text-xs font-bold bg-brandCard">C</div><div class="bg-brandCard border border-white/5 p-4 rounded-2xl rounded-tl-none"><p id="chat-first-message-text" class="text-xs sm:text-sm text-white">Olá!</p><span class="text-[9px] text-brandMuted mt-1 block text-right">Agora mesmo</span></div></div><div id="chat-typing-bubble" class="flex items-center space-x-2 hidden"><span class="text-xs text-brandGray italic">O teu Match está a digitar...</span></div></div><div class="p-4 bg-brandCard/50 border-t border-white/5"><form id="chat-interaction-form" onsubmit="triggerSendMessage(event)" class="flex items-center space-x-3"><input type="text" id="chat-input-field" placeholder="Escreve uma resposta..." class="flex-grow bg-brandDark border border-white/10 focus:border-brandGold p-4 rounded-xl text-white outline-none text-xs sm:text-sm transition duration-200"><button type="submit" class="px-6 py-4 bg-brandGold hover:bg-brandGold-light text-brandBlack font-bold rounded-xl text-xs sm:text-sm transition-all duration-300">Enviar</button></form></div></div></main>
 
-  <main id="view-waitlist" class="hidden flex-grow py-12 px-6 max-w-5xl mx-auto w-full"><div class="space-y-8 relative overflow-hidden text-center"><div class="badge">INNER CIRCLE™ · FOUNDING MEMBERS</div><h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-bold text-white tracking-tight leading-none">Entra antes do mundo descobrir. <br><span class="text-brandGold gold-text-glow">Os primeiros 100 membros serão fundadores.</span></h1><p class="text-brandGray text-sm sm:text-lg max-w-3xl mx-auto leading-relaxed">Estamos a criar uma plataforma onde a IA apresenta uma pessoa por dia com potencial real.</p><div id="founderCounter" class="inline-flex items-center justify-center px-5 py-3 rounded-full border border-brandGold/35 bg-brandGold/10 text-brandGold font-black text-sm sm:text-base tracking-wide shadow-[0_0_25px_rgba(212,175,55,0.12)]">Membros Fundadores: a carregar...</div><div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left pt-6"><div class="bg-brandCard border border-white/5 p-6 rounded-2xl"><h3 class="text-lg font-bold text-brandGold font-serif mb-2">Plano Gratuito</h3><p class="text-xs text-brandGray leading-relaxed">Uma conexão por dia.</p></div><div class="bg-brandCard border border-white/5 p-6 rounded-2xl"><h3 class="text-lg font-bold text-brandGold font-serif mb-2">Premium — €9,99/mês</h3><p class="text-xs text-brandGray leading-relaxed">Mais conexões e relatórios.</p></div><div class="bg-brandCard border border-white/5 p-6 rounded-2xl"><h3 class="text-lg font-bold text-brandGold font-serif mb-2">Founder Badge</h3><p class="text-xs text-brandGray leading-relaxed">Primeiros 100 membros.</p></div></div><form id="waitlistForm" onsubmit="handleWaitlistFormSubmit(event)" class="bg-brandGold/5 border border-brandGold/30 rounded-3xl p-6 md:p-10 text-left max-w-2xl mx-auto space-y-4"><h2 class="font-serif text-2xl font-bold text-white border-b border-brandGold/20 pb-2">Entrar na lista de espera</h2><input type="text" id="w-nome" placeholder="Nome" required class="w-full bg-brandBlack/60 border border-white/10 p-4 rounded-xl text-white outline-none focus:border-brandGold text-sm"><input type="email" id="w-email" placeholder="Email" required class="w-full bg-brandBlack/60 border border-white/10 p-4 rounded-xl text-white outline-none focus:border-brandGold text-sm"><select id="w-perfil" class="w-full bg-brandBlack/60 border border-white/10 p-4 rounded-xl text-white outline-none focus:border-brandGold text-sm"><option>Empreendedor</option><option>Executivo</option><option>Criador</option><option>Investidor</option><option>Profissional em transição</option><option>Outro</option></select><textarea id="w-motivo" required class="w-full bg-brandBlack/60 border border-white/10 p-4 rounded-xl text-white outline-none focus:border-brandGold text-sm h-28 resize-none" placeholder="Porque queres entrar?"></textarea><button type="submit" class="w-full py-4 bg-brandGold text-brandBlack font-black rounded-xl text-sm hover:shadow-lg hover:shadow-brandGold/25 transition">Quero ser membro fundador</button><div class="success hidden p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-200 text-xs sm:text-sm text-center" id="success">Pedido registado com sucesso.</div></form><button onclick="showView('landing')" class="text-xs text-brandMuted hover:text-brandGold transition mt-4 inline-block">← Voltar</button></div></main>
+  <main id="view-waitlist" class="hidden flex-grow py-12 px-6 max-w-5xl mx-auto w-full"><div class="space-y-8 relative overflow-hidden text-center"><div class="badge">INNER CIRCLE™ · FOUNDING MEMBERS</div><h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-bold text-white tracking-tight leading-none">Entra antes do mundo descobrir. <br><span class="text-brandGold gold-text-glow">Os primeiros 100 membros serão fundadores.</span></h1><p class="text-brandGray text-sm sm:text-lg max-w-3xl mx-auto leading-relaxed">Estamos a criar uma plataforma onde a IA apresenta uma pessoa por dia com potencial real.</p><div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left pt-6"><div class="bg-brandCard border border-white/5 p-6 rounded-2xl"><h3 class="text-lg font-bold text-brandGold font-serif mb-2">Plano Gratuito</h3><p class="text-xs text-brandGray leading-relaxed">Uma conexão por dia.</p></div><div class="bg-brandCard border border-white/5 p-6 rounded-2xl"><h3 class="text-lg font-bold text-brandGold font-serif mb-2">Premium — €9,99/mês</h3><p class="text-xs text-brandGray leading-relaxed">Mais conexões e relatórios.</p></div><div class="bg-brandCard border border-white/5 p-6 rounded-2xl"><h3 class="text-lg font-bold text-brandGold font-serif mb-2">Founder Badge</h3><p class="text-xs text-brandGray leading-relaxed">Primeiros 100 membros.</p></div></div><form id="waitlistForm" onsubmit="handleWaitlistFormSubmit(event)" class="bg-brandGold/5 border border-brandGold/30 rounded-3xl p-6 md:p-10 text-left max-w-2xl mx-auto space-y-4"><h2 class="font-serif text-2xl font-bold text-white border-b border-brandGold/20 pb-2">Entrar na lista de espera</h2><input type="text" id="w-nome" placeholder="Nome" required class="w-full bg-brandBlack/60 border border-white/10 p-4 rounded-xl text-white outline-none focus:border-brandGold text-sm"><input type="email" id="w-email" placeholder="Email" required class="w-full bg-brandBlack/60 border border-white/10 p-4 rounded-xl text-white outline-none focus:border-brandGold text-sm"><select id="w-perfil" class="w-full bg-brandBlack/60 border border-white/10 p-4 rounded-xl text-white outline-none focus:border-brandGold text-sm"><option>Empreendedor</option><option>Executivo</option><option>Criador</option><option>Investidor</option><option>Profissional em transição</option><option>Outro</option></select><textarea id="w-motivo" required class="w-full bg-brandBlack/60 border border-white/10 p-4 rounded-xl text-white outline-none focus:border-brandGold text-sm h-28 resize-none" placeholder="Porque queres entrar?"></textarea><button type="submit" class="w-full py-4 bg-brandGold text-brandBlack font-black rounded-xl text-sm hover:shadow-lg hover:shadow-brandGold/25 transition">Quero ser membro fundador</button><div class="success hidden p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-200 text-xs sm:text-sm text-center" id="success">Pedido registado com sucesso.</div></form><button onclick="goHome(event)" class="text-xs text-brandMuted hover:text-brandGold transition mt-4 inline-block">← Voltar</button></div></main>
 
   <main id="view-admin" class="hidden flex-grow py-12 px-6 max-w-5xl mx-auto w-full"><div class="space-y-8"><div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-white/10 pb-6"><div><div class="text-[10px] text-brandGold tracking-[0.2em] font-bold uppercase">INNER CIRCLE™ · ADMIN</div><h1 class="font-serif text-3xl sm:text-5xl font-bold text-white mt-1">Lista de Espera</h1><p class="text-brandGray text-xs sm:text-sm mt-1">Membros registados neste navegador.</p></div><div class="flex gap-3"><button onclick="exportarCSV()" class="px-5 py-3 bg-brandGold text-brandBlack hover:bg-brandGold-light font-bold rounded-xl text-xs transition">Exportar CSV</button><button onclick="openClearConfirmModal()" class="px-5 py-3 bg-red-800 hover:bg-red-700 text-white font-bold rounded-xl text-xs transition">Limpar Lista</button></div></div><div id="admin-lista" class="space-y-4"></div><div class="text-center pt-6"><button onclick="showView('landing')" class="text-xs text-brandMuted hover:text-brandGold transition inline-block">← Voltar</button></div></div></main>
 
-  <footer class="border-t border-white/5 py-8 text-center text-[10px] text-brandMuted space-y-3 bg-brandBlack/60 mt-12 w-full"><div>INNER CIRCLE™ · Todos os direitos reservados.</div></footer>
+  <footer class="border-t border-white/5 py-8 text-center text-[10px] text-brandMuted space-y-3 bg-brandBlack/60 mt-12 w-full"><div>INNER CIRCLE™ · Todos os direitos reservados.
+      <span>·</span>
+      <a href="codigo.html" class="hover:text-brandGold transition">Código do Círculo</a></div><div class="flex flex-wrap justify-center items-center gap-3 md:gap-4"><button onclick="showView('admin')" class="hover:text-brandGold text-[10px] uppercase font-bold tracking-wider text-brandGold/75 transition">Painel Admin</button></div></footer>
 
 <script>
 let state={view:'landing',step:1,profile:{},apiKey:'',match:null,history:[]};
 const icebreakerQuestions=["Qual foi a decisão mais difícil que tomaste nos últimos cinco anos?","Se pudesses resolver apenas um problema do mundo, qual escolherias?","Que conversa mudou a tua vida?","O que gostarias que as pessoas percebessem sobre ti mais rapidamente?","Qual é o teu maior objetivo atualmente?","O que aprendeste com o teu maior fracasso?","Qual foi o momento que mais te transformou como pessoa?"];
-function showView(viewId){['landing','questionnaire','matching','dashboard','waitlist','admin'].forEach(v=>document.getElementById('view-'+v).classList.add('hidden'));document.getElementById('view-'+viewId).classList.remove('hidden');state.view=viewId;window.location.hash=viewId;if(viewId==='admin')carregarLista();if(viewId==='waitlist')carregarContadorFundadores();window.scrollTo({top:0,behavior:'smooth'});}window.addEventListener('load',()=>{const storedKey=localStorage.getItem('ic_gemini_key');if(storedKey){state.apiKey=storedKey;document.getElementById('gemini-key-input').value=storedKey;document.getElementById('api-status-text').innerText='Gemini AI Integrada';}const cached=localStorage.getItem('innerCirclePerfil');if(cached){try{state.profile=JSON.parse(cached);}catch(e){}}const hash=window.location.hash.replace('#','');showView(['landing','questionnaire','matching','dashboard','waitlist','admin'].includes(hash)?hash:'landing');});
+function showView(viewId){['landing','questionnaire','matching','dashboard','waitlist','admin'].forEach(v=>document.getElementById('view-'+v).classList.add('hidden'));document.getElementById('view-'+viewId).classList.remove('hidden');state.view=viewId;window.location.hash=viewId;if(viewId==='admin')carregarLista();window.scrollTo({top:0,behavior:'smooth'});}window.addEventListener('load',()=>{const storedKey=localStorage.getItem('ic_gemini_key');if(storedKey){state.apiKey=storedKey;document.getElementById('gemini-key-input').value=storedKey;document.getElementById('api-status-text').innerText='Gemini AI Integrada';}const cached=localStorage.getItem('innerCirclePerfil');if(cached){try{state.profile=JSON.parse(cached);}catch(e){}}const hash=window.location.hash.replace('#','');showView(['landing','questionnaire','matching','dashboard','waitlist','admin'].includes(hash)?hash:'landing');});
 function toggleApiModal(){document.getElementById('api-modal').classList.toggle('hidden')}function saveApiKey(){const key=document.getElementById('gemini-key-input').value.trim();if(!key){showToast('Erro','Insere uma chave válida.','warning');return;}state.apiKey=key;localStorage.setItem('ic_gemini_key',key);document.getElementById('api-status-text').innerText='Gemini AI Integrada';toggleApiModal();showToast('Chave Guardada','Gemini integrada.','success')}function clearApiKey(){state.apiKey='';localStorage.removeItem('ic_gemini_key');document.getElementById('gemini-key-input').value='';document.getElementById('api-status-text').innerText='Motor IA Inteligente';toggleApiModal();showToast('Chave Removida','Motor local ativo.','info')}
 function startQuestionnaire(){const cached=localStorage.getItem('innerCirclePerfil');if(cached){try{const p=JSON.parse(cached);['nome','local','fase','procura','objetivo','tipoPessoa','oferta','temas','energia'].forEach(k=>{const el=document.getElementById('q-'+k);if(el)el.value=p[k]||el.value||''})}catch(e){}}state.step=1;updateQuestionnaireStepUI();showView('questionnaire')}function updateQuestionnaireStepUI(){['1','2','3'].forEach(n=>document.getElementById('form-step-'+n).classList.add('hidden'));document.getElementById('form-step-'+state.step).classList.remove('hidden');document.getElementById('progress-bar-fill').style.width=((state.step/3)*100)+'%';const back=document.getElementById('form-back-btn'),next=document.getElementById('form-next-btn');back.disabled=state.step===1;back.classList.toggle('opacity-50',state.step===1);next.innerText=state.step===3?'Gerar Conexão Ideal':'Seguinte →'}function handleStepBack(){if(state.step>1){state.step--;updateQuestionnaireStepUI()}}
 function handleStepNext(){if(state.step===1){const nome=qv('nome'),local=qv('local'),fase=qv('fase');if(!nome||!local||!fase){showToast('Aviso','Preenche nome, localização e fase atual.','warning');return;}Object.assign(state.profile,{nome,local,fase});state.step=2;updateQuestionnaireStepUI();return;}if(state.step===2){const procura=qv('procura'),objetivo=qv('objetivo'),tipoPessoa=qv('tipoPessoa');if(!objetivo||!tipoPessoa){showToast('Aviso','Preenche objetivo e tipo de pessoa.','warning');return;}Object.assign(state.profile,{procura,objetivo,tipoPessoa});state.step=3;updateQuestionnaireStepUI();return;}const oferta=qv('oferta'),temas=qv('temas'),energia=qv('energia');if(!oferta||!temas){showToast('Aviso','Preenche oferta e temas.','warning');return;}Object.assign(state.profile,{oferta,temas,energia});localStorage.setItem('innerCirclePerfil',JSON.stringify(state.profile));triggerMatchmaker()}function qv(id){return document.getElementById('q-'+id).value.trim?document.getElementById('q-'+id).value.trim():document.getElementById('q-'+id).value}
@@ -91,23 +93,7 @@ function populateDashboardUI(match){document.getElementById('match-view-name').i
 function useSuggestedIcebreaker(){const input=document.getElementById('chat-input-field');input.value=document.getElementById('match-view-quebraGelo').innerText;input.focus()}async function triggerSendMessage(e){e.preventDefault();const input=document.getElementById('chat-input-field'),text=input.value.trim();if(!text)return;appendChatBubble('Tu',text,true);input.value='';state.history.push({role:'user',text});document.getElementById('chat-typing-bubble').classList.remove('hidden');await new Promise(r=>setTimeout(r,1200));document.getElementById('chat-typing-bubble').classList.add('hidden');const reply='Excelente ponto. É precisamente este tipo de conversa com intenção que torna uma ligação valiosa. O que gostarias de construir ou compreender melhor nos próximos meses?';appendChatBubble(state.match.nome,reply,false);state.history.push({role:'model',text:reply})}function appendChatBubble(sender,text,isUser){const c=document.getElementById('chat-message-wall'),w=document.createElement('div');w.className=isUser?'chat-bubble-dynamic flex items-start space-x-3 max-w-[85%] ml-auto justify-end':'chat-bubble-dynamic flex items-start space-x-3 max-w-[85%]';w.innerHTML=isUser?`<div class="bg-brandGold text-brandBlack p-4 rounded-2xl rounded-tr-none text-xs sm:text-sm"><p>${escapeHtml(text)}</p><span class="text-[9px] text-brandBlack/60 mt-1 block text-right">Agora mesmo</span></div><div class="w-8 h-8 rounded-full bg-brandGold flex-shrink-0 flex items-center justify-center text-brandBlack text-xs font-bold font-serif">Tu</div>`:`<div class="w-8 h-8 rounded-full border border-brandGold/40 flex-shrink-0 flex items-center justify-center font-serif text-brandGold text-xs font-bold bg-brandCard">${sender[0]}</div><div class="bg-brandCard border border-white/5 p-4 rounded-2xl rounded-tl-none text-xs sm:text-sm"><p>${escapeHtml(text)}</p><span class="text-[9px] text-brandMuted mt-1 block text-right">Agora mesmo</span></div>`;c.insertBefore(w,document.getElementById('chat-typing-bubble'));c.scrollTop=c.scrollHeight}function escapeHtml(s){return s.replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
 function exportChatTranscript(){let log=`INNER CIRCLE™\nMatch: ${state.match?.nome||'-'}\n`;state.history.forEach(h=>log+=`${h.role==='user'?'Tu':state.match.nome}: ${h.text}\n`);navigator.clipboard?.writeText(log);showToast('Copiado','Conversa copiada.','success')}
 const SUPABASE_URL='https://mstgnfqxrpbowbypcxcb.supabase.co/rest/v1';
-const SUPABASE_ANON_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1zdGduZnF4cnBib3dieXBjeGNiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE3OTE2MjAsImV4cCI6MjA5NzM2NzYyMH0.cbNGYlFVK0Tky2XdLRgpyF5ckY0Ojm_PxUyfreLcVMg';
-async function carregarContadorFundadores(){
-  const el=document.getElementById('founderCounter');
-  if(!el)return;
-  try{
-    const res=await fetch(`${SUPABASE_URL}/waitlist?select=id`,{
-      headers:{'apikey':SUPABASE_ANON_KEY,'Authorization':`Bearer ${SUPABASE_ANON_KEY}`}
-    });
-    if(!res.ok)throw new Error(await res.text());
-    const data=await res.json();
-    const total=Array.isArray(data)?data.length:0;
-    el.innerText=`Membros Fundadores: ${total} / 100`;
-  }catch(err){
-    console.warn('Erro contador fundadores:',err);
-    el.innerText='Membros Fundadores: 0 / 100';
-  }
-}
+const SUPABASE_ANON_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhc2UiLCJyZWYiOiJtc3RnbmZxeHJwYm93YnlwY3hjYiIsInJvbGUiOiJhbm9uIiwiaWF0IjoxNzgxNzkxNjIwLCJleHAiOjIwOTczNjc2MjB9.cbNGYlFVK0Tky2XdLRgpyF5ckY0Ojm_PxUyfreLcVMg';
 async function handleWaitlistFormSubmit(e){
   e.preventDefault();
   const btn=e.target.querySelector('button[type="submit"]');
@@ -140,10 +126,10 @@ async function handleWaitlistFormSubmit(e){
     localStorage.setItem('innerCircleWaitlist',JSON.stringify(lista));
     document.getElementById('success').classList.remove('hidden');
     document.getElementById('waitlistForm').reset();
-    showToast('Sucesso','Registo guardado no Supabase.','success');carregarContadorFundadores();
+    showToast('Sucesso','Registo guardado no Supabase.','success');
   }catch(err){
     console.error(err);
-    showToast('Erro', String(err.message || err).slice(0, 180), 'warning');
+    showToast('Erro','Não foi possível guardar. Confirma a tabela waitlist e as policies no Supabase.','warning');
   }finally{
     btn.disabled=false;
     btn.innerText=originalText;
@@ -152,5 +138,132 @@ async function handleWaitlistFormSubmit(e){
 function carregarLista(){const dados=JSON.parse(localStorage.getItem('innerCircleWaitlist'))||[],wrap=document.getElementById('admin-lista');if(!dados.length){wrap.innerHTML='<div class="text-center py-20 border border-white/5 bg-brandCard/40 rounded-3xl"><p class="text-brandGray text-sm">Ainda não há inscritos.</p></div>';return;}wrap.innerHTML=`<div class="text-sm font-semibold text-brandGold uppercase tracking-wider mb-2">Total: ${dados.length}</div>`;[...dados].reverse().forEach(m=>{const card=document.createElement('div');card.className='bg-brandCard border border-white/10 p-6 rounded-2xl space-y-3';card.innerHTML=`<div><strong class="text-white text-base font-serif">${escapeHtml(m.nome||'Sem nome')}</strong><div class="text-xs text-brandGray mt-0.5">${escapeHtml(m.email||'Sem email')}</div></div><span class="text-[10px] bg-brandGold/10 text-brandGold font-bold px-2.5 py-1 rounded-full border border-brandGold/25 uppercase tracking-wide inline-block">${escapeHtml(m.perfil||'Outro')}</span><div class="text-xs text-brandGray leading-relaxed border-t border-white/5 pt-3"><span class="font-bold text-brandGold block mb-1">Motivo:</span>"${escapeHtml(m.motivo||'-')}"</div><div class="text-[9px] text-brandMuted text-right">${m.data?new Date(m.data).toLocaleString('pt-PT'):'-'}</div>`;wrap.appendChild(card)})}function exportarCSV(){const dados=JSON.parse(localStorage.getItem('innerCircleWaitlist'))||[];if(!dados.length){showToast('Aviso','Não há dados.','warning');return;}const csv=[['Nome','Email','Perfil','Motivo','Data'],...dados.map(m=>[m.nome,m.email,m.perfil,m.motivo,m.data])].map(l=>l.map(c=>`"${String(c||'').replace(/"/g,'""')}"`).join(',')).join('\n');const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='inner-circle-waitlist.csv';a.click();URL.revokeObjectURL(url)}function openClearConfirmModal(){document.getElementById('confirm-modal').classList.remove('hidden')}function closeClearConfirmModal(){document.getElementById('confirm-modal').classList.add('hidden')}function confirmClearList(){localStorage.removeItem('innerCircleWaitlist');carregarLista();closeClearConfirmModal();showToast('Lista apagada','Dados locais removidos.','success')}
 function showToast(title,message,type='info'){const t=document.getElementById('toast');document.getElementById('toast-title').innerText=title;document.getElementById('toast-message').innerText=message;t.classList.remove('hidden','translate-x-96');setTimeout(()=>{t.classList.add('translate-x-96');setTimeout(()=>t.classList.add('hidden'),300)},3500)}
 </script>
+
+<script>
+// FINAL OVERRIDES — navegação estável, botão Voltar funcional e Supabase real
+(function () {
+  const VIEWS = ['landing','questionnaire','matching','dashboard','waitlist','admin'];
+  const SUPABASE_REST_URL_FIXED = 'https://mstgnfqxrpbowbypcxcb.supabase.co/rest/v1';
+  const SUPABASE_ANON_KEY_FIXED = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdWJhc2UiLCJyZWYiOiJtc3RnbmZxeHJwYm93YnlwY3hjYiIsInJvbGUiOiJhbm9uIiwiaWF0IjoxNzgxNzkxNjIwLCJleHAiOjIwOTczNjc2MjB9.cbNGYlFVK0Tky2XdLRgpyF5ckY0Ojm_PxUyfreLcVMg';
+
+  window.showView = function (viewId) {
+    VIEWS.forEach(function (v) {
+      const el = document.getElementById('view-' + v);
+      if (el) el.classList.add('hidden');
+    });
+
+    const target = document.getElementById('view-' + viewId) || document.getElementById('view-landing');
+    if (target) target.classList.remove('hidden');
+
+    if (viewId === 'landing') {
+      history.replaceState(null, '', location.pathname);
+    } else {
+      history.replaceState(null, '', '#' + viewId);
+    }
+
+    if (viewId === 'waitlist' && typeof carregarContadorFundadores === 'function') carregarContadorFundadores();
+    if (viewId === 'admin' && typeof carregarLista === 'function') carregarLista();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  window.goHome = function (event) {
+    if (event) event.preventDefault();
+    window.showView('landing');
+    return false;
+  };
+
+  window.carregarContadorFundadores = async function () {
+    const el = document.getElementById('founderCounter');
+    try {
+      const res = await fetch(`${SUPABASE_REST_URL_FIXED}/waitlist?select=id`, {
+        headers: {
+          apikey: SUPABASE_ANON_KEY_FIXED,
+          Authorization: `Bearer ${SUPABASE_ANON_KEY_FIXED}`
+        }
+      });
+      if (!res.ok) throw new Error(await res.text());
+      const data = await res.json();
+      const total = Array.isArray(data) ? data.length : 0;
+      if (el) el.innerText = `Membros Fundadores: ${total} / 100`;
+      return total;
+    } catch (err) {
+      console.warn('Erro contador fundadores:', err);
+      if (el) el.innerText = 'Membros Fundadores: 0 / 100';
+      return 0;
+    }
+  };
+
+  window.handleWaitlistFormSubmit = async function (e) {
+    e.preventDefault();
+    const form = document.getElementById('waitlistForm');
+    const btn = form ? form.querySelector('button[type="submit"]') : null;
+    const originalText = btn ? btn.innerText : '';
+    if (btn) { btn.disabled = true; btn.innerText = 'A guardar...'; }
+
+    const membro = {
+      nome: document.getElementById('w-nome').value.trim(),
+      email: document.getElementById('w-email').value.trim(),
+      perfil: document.getElementById('w-perfil').value,
+      motivo: document.getElementById('w-motivo').value.trim()
+    };
+
+    try {
+      const res = await fetch(`${SUPABASE_REST_URL_FIXED}/waitlist`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          apikey: SUPABASE_ANON_KEY_FIXED,
+          Authorization: `Bearer ${SUPABASE_ANON_KEY_FIXED}`,
+          Prefer: 'return=minimal'
+        },
+        body: JSON.stringify(membro)
+      });
+
+      if (!res.ok) throw new Error(await res.text());
+
+      const lista = JSON.parse(localStorage.getItem('innerCircleWaitlist')) || [];
+      lista.push({ ...membro, data: new Date().toISOString() });
+      localStorage.setItem('innerCircleWaitlist', JSON.stringify(lista));
+
+      const total = await window.carregarContadorFundadores();
+      const success = document.getElementById('success');
+      const thankYou = document.getElementById('thankYouBox');
+      const founderPosition = document.getElementById('founderPosition');
+
+      if (success) success.classList.remove('hidden');
+      if (form) form.classList.add('hidden');
+      if (thankYou) thankYou.classList.remove('hidden');
+      if (founderPosition) founderPosition.innerText = `Membro fundador #${total} de 100`;
+      if (form) form.reset();
+      if (typeof showToast === 'function') showToast('Sucesso', 'Registo guardado no Supabase.', 'success');
+    } catch (err) {
+      console.error(err);
+      if (typeof showToast === 'function') showToast('Erro', String(err.message || err).slice(0, 180), 'warning');
+    } finally {
+      if (btn) { btn.disabled = false; btn.innerText = originalText; }
+    }
+  };
+
+  window.resetWaitlistForm = function () {
+    const thankYou = document.getElementById('thankYouBox');
+    const form = document.getElementById('waitlistForm');
+    const success = document.getElementById('success');
+    if (thankYou) thankYou.classList.add('hidden');
+    if (form) form.classList.remove('hidden');
+    if (success) success.classList.add('hidden');
+  };
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('button').forEach(function (btn) {
+      const txt = (btn.textContent || '').trim().toLowerCase();
+      if (txt === '← voltar' || txt === 'voltar') btn.onclick = window.goHome;
+    });
+    const hash = location.hash.replace('#','');
+    window.showView(VIEWS.includes(hash) ? hash : 'landing');
+    window.carregarContadorFundadores();
+  });
+})();
+</script>
+
 </body>
 </html>
