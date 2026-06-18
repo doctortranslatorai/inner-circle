@@ -4,19 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>INNER CIRCLE™ — Uma conversa pode mudar uma vida</title>
-  <link rel="icon" type="image/png" href="https://i.postimg.cc/tZ3CJ40n/favicon.png">
-  <link rel="apple-touch-icon" sizes="192x192" href="https://i.postimg.cc/tZ3CJ403/icon-192.png">
-  <link rel="icon" sizes="512x512" href="https://i.postimg.cc/34XJNxMj/icon-512.png">
-  <meta name="theme-color" content="#050505">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="INNER CIRCLE">
-  <meta property="og:title" content="INNER CIRCLE™">
-  <meta property="og:description" content="Uma conversa pode mudar uma vida.">
-  <meta property="og:image" content="https://i.postimg.cc/bDxNrwXH/icon-1024.png">
-  <meta property="og:type" content="website">
+  <script src="https://cdn.tailwindcss.com">
+window.addEventListener('DOMContentLoaded',()=>{
+  document.querySelectorAll('button').forEach(btn=>{
+    const txt=(btn.textContent||'').trim().toLowerCase();
+    if(txt.includes('encontrar') || txt.includes('começar agora')){
+      btn.addEventListener('click',()=>startQuestionnaire());
+    }
+  });
+});
 
-  <script src="https://cdn.tailwindcss.com"></script>
+</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -33,7 +31,17 @@
         }
       }
     }
-  </script>
+  
+window.addEventListener('DOMContentLoaded',()=>{
+  document.querySelectorAll('button').forEach(btn=>{
+    const txt=(btn.textContent||'').trim().toLowerCase();
+    if(txt.includes('encontrar') || txt.includes('começar agora')){
+      btn.addEventListener('click',()=>startQuestionnaire());
+    }
+  });
+});
+
+</script>
   <style>
     body{background-color:#050505;color:#f5f1e8;font-family:'Inter',sans-serif}.gold-gradient-bg{background:radial-gradient(circle at top,rgba(212,175,55,.12),transparent 50%),linear-gradient(180deg,#050505 0%,#0c0c0c 100%)}.gold-text-glow{text-shadow:0 0 30px rgba(212,175,55,.35)}.radar-circle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);border:1px solid rgba(212,175,55,.15);border-radius:50%;animation:ripple 4s infinite cubic-bezier(.1,.8,.3,1)}.radar-circle:nth-child(2){animation-delay:1.3s}.radar-circle:nth-child(3){animation-delay:2.6s}@keyframes ripple{0%{width:100px;height:100px;opacity:1;border-color:rgba(212,175,55,.4)}100%{width:700px;height:700px;opacity:0;border-color:rgba(212,175,55,0)}}::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:#050505}::-webkit-scrollbar-thumb{background:#d4af37;border-radius:999px}.premium-input{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);transition:all .3s cubic-bezier(.4,0,.2,1)}.premium-input:focus{border-color:#d4af37;background:rgba(255,255,255,.07);box-shadow:0 0 15px rgba(212,175,55,.15)}.badge{display:inline-block;color:#d4af37;border:1px solid rgba(212,175,55,.45);border-radius:999px;padding:10px 18px;font-size:13px;margin-bottom:24px;letter-spacing:1px}
   </style>
@@ -80,6 +88,24 @@
 let state={view:'landing',step:1,profile:{},match:null,history:[]};
 const icebreakerQuestions=["Qual foi a decisão mais difícil que tomaste nos últimos cinco anos?","Se pudesses resolver apenas um problema do mundo, qual escolherias?","Que conversa mudou a tua vida?","O que gostarias que as pessoas percebessem sobre ti mais rapidamente?","Qual é o teu maior objetivo atualmente?","O que aprendeste com o teu maior fracasso?","Qual foi o momento que mais te transformou como pessoa?"];
 function showView(viewId){['landing','questionnaire','matching','dashboard','waitlist','admin'].forEach(v=>document.getElementById('view-'+v).classList.add('hidden'));document.getElementById('view-'+viewId).classList.remove('hidden');state.view=viewId;window.location.hash=viewId;if(viewId==='admin')carregarLista();window.scrollTo({top:0,behavior:'smooth'});}window.addEventListener('load',()=>{const cached=localStorage.getItem('innerCirclePerfil');if(cached){try{state.profile=JSON.parse(cached);}catch(e){}}const hash=window.location.hash.replace('#','');showView(['landing','questionnaire','matching','dashboard','waitlist','admin'].includes(hash)?hash:'landing');});
+
+function startQuestionnaire(){
+  const cached=localStorage.getItem('innerCirclePerfil');
+  if(cached){
+    try{
+      const x=JSON.parse(cached);
+      const set=(id,val)=>{const el=document.getElementById('q-'+id); if(el) el.value=val||''};
+      set('nome',x.nome); set('local',x.local); set('fase',x.fase);
+      set('procura',x.procura); set('objetivo',x.objetivo); set('tipoPessoa',x.tipoPessoa);
+      set('oferta',x.oferta); set('temas',x.temas); set('energia',x.energia);
+      state.profile=x;
+    }catch(e){}
+  }
+  state.step=1;
+  updateQuestionnaireStepUI();
+  showView('questionnaire');
+}
+
 function updateQuestionnaireStepUI(){['1','2','3'].forEach(n=>document.getElementById('form-step-'+n).classList.add('hidden'));document.getElementById('form-step-'+state.step).classList.remove('hidden');document.getElementById('progress-bar-fill').style.width=((state.step/3)*100)+'%';const back=document.getElementById('form-back-btn'),next=document.getElementById('form-next-btn');back.disabled=state.step===1;back.classList.toggle('opacity-50',state.step===1);next.innerText=state.step===3?'Gerar Conexão Ideal':'Seguinte →'}function handleStepBack(){if(state.step>1){state.step--;updateQuestionnaireStepUI()}}
 function handleStepNext(){if(state.step===1){const nome=qv('nome'),local=qv('local'),fase=qv('fase');if(!nome||!local||!fase){showToast('Aviso','Preenche nome, localização e fase atual.','warning');return;}Object.assign(state.profile,{nome,local,fase});state.step=2;updateQuestionnaireStepUI();return;}if(state.step===2){const procura=qv('procura'),objetivo=qv('objetivo'),tipoPessoa=qv('tipoPessoa');if(!objetivo||!tipoPessoa){showToast('Aviso','Preenche objetivo e tipo de pessoa.','warning');return;}Object.assign(state.profile,{procura,objetivo,tipoPessoa});state.step=3;updateQuestionnaireStepUI();return;}const oferta=qv('oferta'),temas=qv('temas'),energia=qv('energia');if(!oferta||!temas){showToast('Aviso','Preenche oferta e temas.','warning');return;}Object.assign(state.profile,{oferta,temas,energia});localStorage.setItem('innerCirclePerfil',JSON.stringify(state.profile));triggerMatchmaker()}function qv(id){return document.getElementById('q-'+id).value.trim?document.getElementById('q-'+id).value.trim():document.getElementById('q-'+id).value}
 async function triggerMatchmaker(){showView('matching');const status=document.getElementById('matching-status-log');for(const msg of ['A extrair vetores semânticos...','A filtrar perfis complementares...','A validar energia humana...','A preparar quebra-gelo ideal...']){await new Promise(r=>setTimeout(r,600));status.innerText=msg}const m=computeHeuristicMatch(state.profile);state.match=m;populateDashboardUI(m);showView('dashboard');showToast('Match Encontrado',`Ligação diária ativa com ${m.nome}.`,'success')}
@@ -90,6 +116,16 @@ function exportChatTranscript(){let log=`INNER CIRCLE™\nMatch: ${state.match?.
 function handleWaitlistFormSubmit(e){e.preventDefault();const membro={nome:document.getElementById('w-nome').value,email:document.getElementById('w-email').value,perfil:document.getElementById('w-perfil').value,motivo:document.getElementById('w-motivo').value,data:new Date().toISOString()};const lista=JSON.parse(localStorage.getItem('innerCircleWaitlist'))||[];lista.push(membro);localStorage.setItem('innerCircleWaitlist',JSON.stringify(lista));document.getElementById('success').classList.remove('hidden');document.getElementById('waitlistForm').reset();showToast('Sucesso','Registo guardado.','success')}
 function carregarLista(){const dados=JSON.parse(localStorage.getItem('innerCircleWaitlist'))||[],wrap=document.getElementById('admin-lista');if(!dados.length){wrap.innerHTML='<div class="text-center py-20 border border-white/5 bg-brandCard/40 rounded-3xl"><p class="text-brandGray text-sm">Ainda não há inscritos.</p></div>';return;}wrap.innerHTML=`<div class="text-sm font-semibold text-brandGold uppercase tracking-wider mb-2">Total: ${dados.length}</div>`;[...dados].reverse().forEach(m=>{const card=document.createElement('div');card.className='bg-brandCard border border-white/10 p-6 rounded-2xl space-y-3';card.innerHTML=`<div><strong class="text-white text-base font-serif">${escapeHtml(m.nome||'Sem nome')}</strong><div class="text-xs text-brandGray mt-0.5">${escapeHtml(m.email||'Sem email')}</div></div><span class="text-[10px] bg-brandGold/10 text-brandGold font-bold px-2.5 py-1 rounded-full border border-brandGold/25 uppercase tracking-wide inline-block">${escapeHtml(m.perfil||'Outro')}</span><div class="text-xs text-brandGray leading-relaxed border-t border-white/5 pt-3"><span class="font-bold text-brandGold block mb-1">Motivo:</span>"${escapeHtml(m.motivo||'-')}"</div><div class="text-[9px] text-brandMuted text-right">${m.data?new Date(m.data).toLocaleString('pt-PT'):'-'}</div>`;wrap.appendChild(card)})}function exportarCSV(){const dados=JSON.parse(localStorage.getItem('innerCircleWaitlist'))||[];if(!dados.length){showToast('Aviso','Não há dados.','warning');return;}const csv=[['Nome','Email','Perfil','Motivo','Data'],...dados.map(m=>[m.nome,m.email,m.perfil,m.motivo,m.data])].map(l=>l.map(c=>`"${String(c||'').replace(/"/g,'""')}"`).join(',')).join('\n');const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='inner-circle-waitlist.csv';a.click();URL.revokeObjectURL(url)}function openClearConfirmModal(){document.getElementById('confirm-modal').classList.remove('hidden')}function closeClearConfirmModal(){document.getElementById('confirm-modal').classList.add('hidden')}function confirmClearList(){localStorage.removeItem('innerCircleWaitlist');carregarLista();closeClearConfirmModal();showToast('Lista apagada','Dados locais removidos.','success')}
 function showToast(title,message,type='info'){const t=document.getElementById('toast');document.getElementById('toast-title').innerText=title;document.getElementById('toast-message').innerText=message;t.classList.remove('hidden','translate-x-96');setTimeout(()=>{t.classList.add('translate-x-96');setTimeout(()=>t.classList.add('hidden'),300)},3500)}
+
+window.addEventListener('DOMContentLoaded',()=>{
+  document.querySelectorAll('button').forEach(btn=>{
+    const txt=(btn.textContent||'').trim().toLowerCase();
+    if(txt.includes('encontrar') || txt.includes('começar agora')){
+      btn.addEventListener('click',()=>startQuestionnaire());
+    }
+  });
+});
+
 </script>
 </body>
 </html>
