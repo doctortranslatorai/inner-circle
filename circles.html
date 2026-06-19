@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>IC Circles™ | INNER CIRCLE™</title>
+
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/tZ3CJ40n/favicon.png">
+  <link rel="apple-touch-icon" href="https://i.postimg.cc/tZ3CJ403/icon-192.png">
+  <meta name="theme-color" content="#050505">
+
+  <meta property="og:title" content="IC Circles™ | INNER CIRCLE™">
+  <meta property="og:description" content="Círculos privados para conversas, projetos e conexões de alto valor.">
+  <meta property="og:image" content="https://i.postimg.cc/bDxNrwXH/icon-1024.png">
+  <meta property="og:type" content="website">
+
+  <style>
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:
+        radial-gradient(circle at top left, rgba(212,175,55,.13), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(212,175,55,.08), transparent 40%),
+        #050505;
+      color:#f5f1e8;
+      font-family:Inter,Arial,sans-serif;
+    }
+    a{text-decoration:none;color:#d4af37}
+    nav{
+      max-width:1180px;
+      margin:auto;
+      padding:18px 20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      border-bottom:1px solid rgba(255,255,255,.07);
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:#fff;
+      font-weight:900;
+      letter-spacing:.16em;
+      font-size:13px;
+    }
+    .brand img{
+      width:38px;
+      height:38px;
+      border-radius:50%;
+      border:1px solid rgba(212,175,55,.35);
+    }
+    .gold{color:#d4af37}
+    .btn{
+      display:inline-flex;
+      justify-content:center;
+      align-items:center;
+      padding:13px 18px;
+      border-radius:14px;
+      border:1px solid rgba(212,175,55,.35);
+      color:#d4af37;
+      background:rgba(212,175,55,.05);
+      font-weight:900;
+      font-size:13px;
+      cursor:pointer;
+      transition:.25s;
+    }
+    .btn:hover{background:#d4af37;color:#050505}
+    .wrap{
+      max-width:1180px;
+      margin:auto;
+      padding:70px 20px;
+    }
+    .badge{
+      display:inline-block;
+      border:1px solid rgba(212,175,55,.45);
+      color:#d4af37;
+      border-radius:999px;
+      padding:9px 16px;
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      margin-bottom:26px;
+      background:rgba(212,175,55,.05);
+    }
+    h1{
+      font-family:Georgia,serif;
+      font-size:clamp(44px,8vw,86px);
+      line-height:.95;
+      margin:0 0 24px;
+      color:#fff;
+      max-width:920px;
+    }
+    h1 span{color:#d4af37}
+    .lead{
+      color:#c8c1b3;
+      font-size:clamp(18px,3vw,24px);
+      line-height:1.55;
+      max-width:780px;
+      margin-bottom:50px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:20px;
+    }
+    .circle{
+      background:rgba(255,255,255,.045);
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:26px;
+      padding:26px;
+      min-height:245px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      box-shadow:0 25px 90px rgba(0,0,0,.25);
+      transition:.25s;
+    }
+    .circle:hover{
+      transform:translateY(-4px);
+      border-color:rgba(212,175,55,.35);
+      background:rgba(212,175,55,.06);
+    }
+    .icon{
+      width:52px;
+      height:52px;
+      border-radius:18px;
+      display:grid;
+      place-items:center;
+      font-size:24px;
+      background:rgba(212,175,55,.08);
+      border:1px solid rgba(212,175,55,.2);
+      margin-bottom:18px;
+    }
+    .circle h2{
+      font-family:Georgia,serif;
+      font-size:23px;
+      color:#fff;
+      margin:0 0 10px;
+    }
+    .circle p{
+      color:#bdb5a7;
+      line-height:1.6;
+      font-size:14px;
+      margin:0 0 20px;
+    }
+    .stats{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin-top:auto;
+    }
+    .stat{
+      background:rgba(0,0,0,.22);
+      border:1px solid rgba(255,255,255,.07);
+      border-radius:14px;
+      padding:10px;
+    }
+    .stat small{
+      display:block;
+      color:#777;
+      font-size:9px;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+      font-weight:900;
+    }
+    .stat strong{
+      display:block;
+      color:#d4af37;
+      font-size:18px;
+      margin-top:4px;
+    }
+    .events{
+      margin-top:32px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+    }
+    .panel{
+      background:rgba(255,255,255,.045);
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:28px;
+      padding:30px;
+    }
+    .panel h2{
+      font-family:Georgia,serif;
+      color:#d4af37;
+      margin:0 0 18px;
+      font-size:28px;
+    }
+    .event{
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      padding:14px 0;
+      border-bottom:1px solid rgba(255,255,255,.07);
+      color:#c8c1b3;
+      font-size:14px;
+    }
+    .event strong{color:#fff}
+    .event span{color:#d4af37;text-align:right}
+    .reputation{
+      display:grid;
+      gap:13px;
+    }
+    .rep{
+      padding:14px;
+      border-radius:16px;
+      background:rgba(212,175,55,.06);
+      border:1px solid rgba(212,175,55,.16);
+      color:#c8c1b3;
+      font-size:14px;
+    }
+    .quote{
+      margin-top:32px;
+      padding:34px;
+      border-radius:28px;
+      background:rgba(212,175,55,.08);
+      border:1px solid rgba(212,175,55,.23);
+      color:#d4af37;
+      font-family:Georgia,serif;
+      font-size:clamp(25px,4vw,46px);
+      line-height:1.25;
+      text-align:center;
+    }
+    footer{
+      border-top:1px solid rgba(255,255,255,.07);
+      color:#777;
+      text-align:center;
+      padding:34px 20px;
+      font-size:12px;
+    }
+    @media(max-width:1050px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:760px){
+      .grid,.events{grid-template-columns:1fr}
+      nav{gap:14px}
+      .brand{font-size:12px;letter-spacing:.08em}
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <a class="brand" href="index.html">
+    <img src="https://i.postimg.cc/tZ3CJ40n/favicon.png" alt="INNER CIRCLE">
+    INNER CIRCLE<span class="gold">™</span>
+  </a>
+  <a class="btn" href="index.html">Voltar ao site</a>
+</nav>
+
+<main class="wrap">
+  <div class="badge">INNER CIRCLE™ · Círculos Privados</div>
+
+  <h1>IC Circles™<br><span>onde as melhores conversas ganham contexto.</span></h1>
+
+  <p class="lead">
+    Círculos privados para membros com interesses, objetivos e energia compatíveis.
+    Não são grupos cheios de ruído. São espaços desenhados para conversas, projetos,
+    mentorias e oportunidades reais.
+  </p>
+
+  <section class="grid">
+    <article class="circle">
+      <div>
+        <div class="icon">🟡</div>
+        <h2>IC Founders</h2>
+        <p>Primeiros membros, construtores iniciais e pessoas que acreditaram antes do lançamento oficial.</p>
+      </div>
+      <div class="stats"><div class="stat"><small>Membros</small><strong>100</strong></div><div class="stat"><small>Evento</small><strong>Friday</strong></div></div>
+    </article>
+
+    <article class="circle">
+      <div>
+        <div class="icon">🟢</div>
+        <h2>IC Investors</h2>
+        <p>Investidores, business angels e mentes estratégicas focadas em oportunidades e crescimento.</p>
+      </div>
+      <div class="stats"><div class="stat"><small>Membros</small><strong>48</strong></div><div class="stat"><small>Evento</small><strong>Hour</strong></div></div>
+    </article>
+
+    <article class="circle">
+      <div>
+        <div class="icon">🟣</div>
+        <h2>IC Creators</h2>
+        <p>Escritores, músicos, designers, fotógrafos, criadores de conteúdo e artistas digitais.</p>
+      </div>
+      <div class="stats"><div class="stat"><small>Membros</small><strong>72</strong></div><div class="stat"><small>Evento</small><strong>Lab</strong></div></div>
+    </article>
+
+    <article class="circle">
+      <div>
+        <div class="icon">🔵</div>
+        <h2>IC Mentors</h2>
+        <p>Pessoas experientes disponíveis para orientar, abrir portas e ajudar membros em fases decisivas.</p>
+      </div>
+      <div class="stats"><div class="stat"><small>Membros</small><strong>21</strong></div><div class="stat"><small>Evento</small><strong>Call</strong></div></div>
+    </article>
+
+    <article class="circle">
+      <div>
+        <div class="icon">⚫</div>
+        <h2>IC Startups</h2>
+        <p>Fundadores, programadores, designers e pessoas a construir produtos, apps e negócios digitais.</p>
+      </div>
+      <div class="stats"><div class="stat"><small>Membros</small><strong>64</strong></div><div class="stat"><small>Evento</small><strong>Build</strong></div></div>
+    </article>
+
+    <article class="circle">
+      <div>
+        <div class="icon">🌍</div>
+        <h2>IC Global</h2>
+        <p>Membros abertos a conexões internacionais, idiomas diferentes e colaboração sem fronteiras.</p>
+      </div>
+      <div class="stats"><div class="stat"><small>Países</small><strong>18</strong></div><div class="stat"><small>Modo</small><strong>Global</strong></div></div>
+    </article>
+
+    <article class="circle">
+      <div>
+        <div class="icon">🤖</div>
+        <h2>IC AI & Tech</h2>
+        <p>Inteligência Artificial, automação, produto, tecnologia, futuro do trabalho e ferramentas digitais.</p>
+      </div>
+      <div class="stats"><div class="stat"><small>Membros</small><strong>83</strong></div><div class="stat"><small>Evento</small><strong>Round</strong></div></div>
+    </article>
+
+    <article class="circle">
+      <div>
+        <div class="icon">📚</div>
+        <h2>IC Books</h2>
+        <p>Autores, leitores, pensadores e pessoas que usam livros como ponte para conversas profundas.</p>
+      </div>
+      <div class="stats"><div class="stat"><small>Membros</small><strong>39</strong></div><div class="stat"><small>Evento</small><strong>Club</strong></div></div>
+    </article>
+  </section>
+
+  <section class="events">
+    <div class="panel">
+      <h2>Eventos Futuros</h2>
+      <div class="event"><strong>Founder Friday</strong><span>Sexta · 21h</span></div>
+      <div class="event"><strong>Investor Hour</strong><span>Quarta · 19h</span></div>
+      <div class="event"><strong>AI Roundtable</strong><span>Domingo · 18h</span></div>
+      <div class="event"><strong>Global Coffee Chat</strong><span>Sábado · 10h</span></div>
+    </div>
+
+    <div class="panel">
+      <h2>IC Reputation™</h2>
+      <div class="reputation">
+        <div class="rep">✅ Responder com respeito e presença.</div>
+        <div class="rep">✅ Criar ligações úteis entre membros.</div>
+        <div class="rep">✅ Participar em círculos com intenção real.</div>
+        <div class="rep">✅ Ajudar sem transformar tudo em venda.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="quote">
+    No INNER CIRCLE™, comunidade não é quantidade.<br>
+    É contexto, confiança e qualidade humana.
+  </div>
+</main>
+
+<footer>
+  INNER CIRCLE™ · IC Circles™ · <a href="manifesto.html">Manifesto</a> · <a href="codigo.html">Código do Círculo</a>
+</footer>
+
+</body>
+</html>
