@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Private Circle Chat™ | INNER CIRCLE™</title>
+
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/tZ3CJ40n/favicon.png">
+  <link rel="apple-touch-icon" href="https://i.postimg.cc/tZ3CJ403/icon-192.png">
+  <meta name="theme-color" content="#050505">
+
+  <meta property="og:title" content="Private Circle Chat™ | INNER CIRCLE™">
+  <meta property="og:description" content="Chat privado para conexões humanas consentidas e de alto valor.">
+  <meta property="og:image" content="https://i.postimg.cc/bDxNrwXH/icon-1024.png">
+  <meta property="og:type" content="website">
+
+  <style>
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:
+        radial-gradient(circle at top left, rgba(212,175,55,.13), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(212,175,55,.08), transparent 42%),
+        #050505;
+      color:#f5f1e8;
+      font-family:Inter,Arial,sans-serif;
+      min-height:100vh;
+    }
+    a{text-decoration:none;color:#d4af37}
+    nav{
+      max-width:1180px;
+      margin:auto;
+      padding:18px 20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      border-bottom:1px solid rgba(255,255,255,.07);
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:#fff;
+      font-weight:900;
+      letter-spacing:.16em;
+      font-size:13px;
+    }
+    .brand img{
+      width:38px;
+      height:38px;
+      border-radius:50%;
+      border:1px solid rgba(212,175,55,.35);
+    }
+    .gold{color:#d4af37}
+    .btn{
+      display:inline-flex;
+      justify-content:center;
+      align-items:center;
+      padding:12px 16px;
+      border-radius:14px;
+      border:1px solid rgba(212,175,55,.35);
+      color:#d4af37;
+      background:rgba(212,175,55,.05);
+      font-weight:900;
+      font-size:13px;
+      cursor:pointer;
+      transition:.25s;
+    }
+    .btn:hover{background:#d4af37;color:#050505}
+    .wrap{
+      max-width:1180px;
+      margin:auto;
+      padding:42px 20px 70px;
+      display:grid;
+      grid-template-columns:360px 1fr;
+      gap:24px;
+    }
+    .card{
+      background:rgba(255,255,255,.045);
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:28px;
+      padding:24px;
+      box-shadow:0 25px 90px rgba(0,0,0,.25);
+    }
+    .match-header{
+      display:flex;
+      gap:16px;
+      align-items:center;
+      margin-bottom:20px;
+    }
+    .avatar{
+      width:74px;
+      height:74px;
+      border-radius:24px;
+      background:radial-gradient(circle at top, rgba(212,175,55,.45), transparent 55%),#101010;
+      border:1px solid rgba(212,175,55,.4);
+      display:grid;
+      place-items:center;
+      flex-shrink:0;
+    }
+    .avatar img{
+      width:58px;
+      height:58px;
+      object-fit:contain;
+    }
+    h1,h2{
+      font-family:Georgia,serif;
+      color:#fff;
+      margin:0;
+    }
+    h1{font-size:28px;line-height:1}
+    h2{font-size:25px;margin-bottom:16px}
+    .muted{
+      color:#bdb5a7;
+      font-size:13px;
+      line-height:1.6;
+    }
+    .badge{
+      display:inline-block;
+      border-radius:999px;
+      padding:8px 11px;
+      font-size:11px;
+      font-weight:900;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.05);
+      margin:6px 6px 0 0;
+    }
+    .verified{color:#69a7ff;border-color:rgba(105,167,255,.45)}
+    .trusted{color:#44d68a;border-color:rgba(68,214,138,.45)}
+    .mentor{color:#e7e7e7;border-color:rgba(231,231,231,.35)}
+    .score{
+      margin:22px 0;
+      padding:22px;
+      border-radius:22px;
+      background:rgba(212,175,55,.07);
+      border:1px solid rgba(212,175,55,.22);
+      text-align:center;
+    }
+    .score strong{
+      display:block;
+      font-family:Georgia,serif;
+      font-size:58px;
+      line-height:1;
+      color:#d4af37;
+    }
+    .metric{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      padding:12px 0;
+      border-bottom:1px solid rgba(255,255,255,.07);
+      color:#c8c1b3;
+      font-size:13px;
+    }
+    .metric b{color:#d4af37}
+    .privacy{
+      margin-top:20px;
+      padding:16px;
+      border-radius:18px;
+      background:rgba(0,0,0,.22);
+      border:1px solid rgba(255,255,255,.07);
+      color:#c8c1b3;
+      font-size:12px;
+      line-height:1.55;
+    }
+    .chat{
+      display:flex;
+      flex-direction:column;
+      min-height:650px;
+      overflow:hidden;
+      padding:0;
+    }
+    .chat-top{
+      padding:22px 24px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      background:rgba(0,0,0,.18);
+    }
+    .status{
+      color:#44d68a;
+      font-size:12px;
+      font-weight:900;
+    }
+    .messages{
+      flex:1;
+      padding:24px;
+      overflow:auto;
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+    }
+    .notice{
+      text-align:center;
+      max-width:560px;
+      margin:0 auto 10px;
+      padding:14px;
+      border-radius:18px;
+      background:rgba(212,175,55,.07);
+      border:1px solid rgba(212,175,55,.18);
+      color:#c8c1b3;
+      font-size:12px;
+      line-height:1.5;
+    }
+    .msg{
+      max-width:75%;
+      padding:14px 16px;
+      border-radius:20px;
+      font-size:14px;
+      line-height:1.55;
+    }
+    .other{
+      align-self:flex-start;
+      background:rgba(255,255,255,.055);
+      border:1px solid rgba(255,255,255,.08);
+      border-top-left-radius:6px;
+      color:#f5f1e8;
+    }
+    .mine{
+      align-self:flex-end;
+      background:#d4af37;
+      color:#050505;
+      border-top-right-radius:6px;
+      font-weight:650;
+    }
+    .time{
+      display:block;
+      opacity:.6;
+      font-size:10px;
+      margin-top:6px;
+      text-align:right;
+    }
+    .composer{
+      padding:18px;
+      border-top:1px solid rgba(255,255,255,.08);
+      display:grid;
+      grid-template-columns:auto auto 1fr auto;
+      gap:10px;
+      background:rgba(0,0,0,.2);
+    }
+    input{
+      width:100%;
+      padding:14px 16px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.05);
+      color:#fff;
+      outline:none;
+      font-size:14px;
+    }
+    input:focus{border-color:#d4af37}
+    .small-btn{
+      border:1px solid rgba(255,255,255,.1);
+      color:#c8c1b3;
+      background:rgba(255,255,255,.045);
+      border-radius:16px;
+      padding:13px 14px;
+      cursor:pointer;
+      font-weight:900;
+      font-size:12px;
+    }
+    .small-btn:hover{
+      color:#d4af37;
+      border-color:rgba(212,175,55,.35);
+    }
+    footer{
+      border-top:1px solid rgba(255,255,255,.07);
+      color:#777;
+      text-align:center;
+      padding:34px 20px;
+      font-size:12px;
+    }
+    @media(max-width:900px){
+      .wrap{grid-template-columns:1fr}
+      .chat{min-height:580px}
+      .composer{grid-template-columns:1fr;gap:12px}
+      .small-btn,.btn{width:100%}
+      .msg{max-width:90%}
+      nav{gap:14px}
+      .brand{font-size:12px;letter-spacing:.08em}
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <a class="brand" href="index.html">
+    <img src="https://i.postimg.cc/tZ3CJ40n/favicon.png" alt="INNER CIRCLE">
+    INNER CIRCLE<span class="gold">™</span>
+  </a>
+  <a class="btn" href="index.html">Voltar ao site</a>
+</nav>
+
+<main class="wrap">
+
+  <aside class="card">
+    <div class="match-header">
+      <div class="avatar">
+        <img src="https://i.postimg.cc/tZ3CJ40n/favicon.png" alt="IC">
+      </div>
+      <div>
+        <h1>Mariana Alvim</h1>
+        <p class="muted">Designer de Interações · Braga, Portugal</p>
+      </div>
+    </div>
+
+    <div>
+      <span class="badge verified">🔵 IC Verified</span>
+      <span class="badge trusted">🟢 IC Trusted</span>
+      <span class="badge mentor">⚪ IC Mentor</span>
+    </div>
+
+    <div class="score">
+      <strong>94%</strong>
+      <span class="muted">Human Affinity Score™</span>
+    </div>
+
+    <div class="metric"><span>Valores</span><b>96%</b></div>
+    <div class="metric"><span>Objetivos</span><b>92%</b></div>
+    <div class="metric"><span>Energia</span><b>95%</b></div>
+    <div class="metric"><span>Interesses</span><b>93%</b></div>
+
+    <div class="privacy">
+      <b class="gold">Nota de privacidade:</b><br>
+      Esta conversa só existe porque ambos aceitaram o match. Não partilhes mensagens, documentos ou informações privadas sem consentimento.
+    </div>
+
+    <div style="display:grid;gap:10px;margin-top:18px">
+      <button class="btn" onclick="alert('IC Secure Share™ será ativado na próxima versão.')">Enviar documento</button>
+      <button class="btn" onclick="alert('Pedido de chamada privada enviado.')">Pedir chamada 20 min</button>
+      <button class="small-btn" onclick="alert('Utilizador reportado para revisão.')">Reportar</button>
+      <button class="small-btn" onclick="alert('Conexão bloqueada nesta simulação.')">Bloquear</button>
+    </div>
+  </aside>
+
+  <section class="card chat">
+    <div class="chat-top">
+      <div>
+        <h2>Private Circle Chat™</h2>
+        <p class="muted">Sala privada aberta por 24 horas · Match consentido</p>
+      </div>
+      <div class="status">● Online</div>
+    </div>
+
+    <div id="messages" class="messages">
+      <div class="notice">
+        O INNER CIRCLE™ abriu esta conversa porque existe elevada compatibilidade humana, criativa e estratégica.
+      </div>
+
+      <div class="msg other">
+        Olá, Pedro. A análise do Inner Circle indicou que ambos valorizamos conversas profundas e projetos com intenção real.
+        <span class="time">Agora</span>
+      </div>
+
+      <div class="msg mine">
+        Olá Mariana. Gostei muito da ideia de começarmos por uma conversa com propósito.
+        <span class="time">Agora</span>
+      </div>
+
+      <div class="msg other">
+        Então começo com uma pergunta: que tipo de ligação sentes que te faria mais sentido nesta fase da tua vida?
+        <span class="time">Agora</span>
+      </div>
+    </div>
+
+    <form class="composer" onsubmit="sendMessage(event)">
+      <button type="button" class="small-btn" onclick="alert('Anexos seguros em breve: PDF, imagens, portfólio e propostas.')">📎 Anexar</button>
+      <button type="button" class="small-btn" onclick="usePrompt()">💬 Sugestão IA</button>
+      <input id="chatInput" placeholder="Escreve uma mensagem privada..." autocomplete="off">
+      <button class="btn" type="submit">Enviar</button>
+    </form>
+  </section>
+
+</main>
+
+<footer>
+  INNER CIRCLE™ · Private Circle Chat™ · <a href="codigo.html">Código do Círculo</a> · <a href="perfil.html">Perfil Vivo™</a>
+</footer>
+
+<script>
+  function sendMessage(e){
+    e.preventDefault();
+    const input = document.getElementById("chatInput");
+    const text = input.value.trim();
+    if(!text) return;
+
+    const wall = document.getElementById("messages");
+    const msg = document.createElement("div");
+    msg.className = "msg mine";
+    msg.innerHTML = text + '<span class="time">Agora</span>';
+    wall.appendChild(msg);
+    input.value = "";
+    wall.scrollTop = wall.scrollHeight;
+
+    setTimeout(() => {
+      const reply = document.createElement("div");
+      reply.className = "msg other";
+      reply.innerHTML = "Boa pergunta. Acho que esse é exatamente o tipo de conversa que o INNER CIRCLE™ deveria proteger: direta, humana e com intenção real.<span class='time'>Agora</span>";
+      wall.appendChild(reply);
+      wall.scrollTop = wall.scrollHeight;
+    }, 900);
+  }
+
+  function usePrompt(){
+    document.getElementById("chatInput").value = "Qual foi a conversa que mais mudou a tua forma de ver a vida?";
+    document.getElementById("chatInput").focus();
+  }
+</script>
+
+</body>
+</html>
