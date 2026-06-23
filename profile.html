@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>INNER CIRCLE™ — Perfil</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      background: #050816;
+      color: white;
+      font-family: Inter, system-ui, sans-serif;
+    }
+    .glass {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(18px);
+    }
+    .badge {
+      background: linear-gradient(135deg,#8b5cf6,#ec4899);
+    }
+  </style>
+</head>
+
+<body class="min-h-screen px-4 py-6">
+
+  <main class="max-w-6xl mx-auto space-y-6">
+
+    <a href="app.html" class="text-gray-400 hover:text-white">← Voltar ao feed</a>
+
+    <!-- HEADER PERFIL -->
+    <section class="glass rounded-3xl overflow-hidden">
+      <div class="h-48 bg-gradient-to-br from-purple-700 via-pink-600 to-blue-700"></div>
+
+      <div class="p-6 md:p-8">
+        <div class="flex flex-col md:flex-row md:items-end gap-6 -mt-20">
+          <div class="w-36 h-36 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 border-4 border-[#050816]"></div>
+
+          <div class="flex-1">
+            <div class="flex flex-wrap items-center gap-3">
+              <h1 class="text-4xl font-black">Pedro Figueiredo</h1>
+              <span class="badge px-3 py-1 rounded-full text-xs font-bold">IC Founder</span>
+              <span class="glass px-3 py-1 rounded-full text-xs">IC Verified</span>
+            </div>
+
+            <p class="text-gray-300 mt-2">
+              Portugal 🇵🇹 • Criador digital • IA • Projetos sociais • Startups
+            </p>
+          </div>
+
+          <button class="bg-purple-500 hover:bg-purple-600 px-6 py-3 rounded-2xl font-bold">
+            🤝 Conectar
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <div class="grid lg:grid-cols-3 gap-6">
+
+      <!-- COLUNA ESQUERDA -->
+      <aside class="space-y-6">
+
+        <section class="glass rounded-3xl p-6">
+          <h2 class="text-xl font-black mb-4">Índice de confiança</h2>
+
+          <div class="text-5xl font-black mb-2">94%</div>
+          <p class="text-gray-400 text-sm">
+            Baseado em verificação, recomendações, atividade e colaborações reais.
+          </p>
+        </section>
+
+        <section class="glass rounded-3xl p-6">
+          <h2 class="text-xl font-black mb-4">Objetivos</h2>
+
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-purple-500/20 text-purple-200 px-3 py-1 rounded-full text-sm">Parcerias</span>
+            <span class="bg-blue-500/20 text-blue-200 px-3 py-1 rounded-full text-sm">Investimento</span>
+            <span class="bg-green-500/20 text-green-200 px-3 py-1 rounded-full text-sm">Mentoria</span>
+            <span class="bg-pink-500/20 text-pink-200 px-3 py-1 rounded-full text-sm">Comunidade</span>
+          </div>
+        </section>
+
+        <section class="glass rounded-3xl p-6">
+          <h2 class="text-xl font-black mb-4">Competências</h2>
+
+          <div class="space-y-2 text-gray-300">
+            <p>• Ideação de produtos digitais</p>
+            <p>• Marketing com IA</p>
+            <p>• Criação de websites</p>
+            <p>• Conteúdo viral</p>
+            <p>• Estratégia de comunidade</p>
+          </div>
+        </section>
+
+      </aside>
+
+      <!-- CONTEÚDO PRINCIPAL -->
+      <section class="lg:col-span-2 space-y-6">
+
+        <section class="glass rounded-3xl p-6">
+          <h2 class="text-2xl font-black mb-4">Sobre</h2>
+
+          <p class="text-gray-300 text-lg leading-relaxed">
+            Estou a construir projetos digitais com foco em IA, redes sociais,
+            comunidades, produtos criativos e oportunidades reais entre pessoas.
+            Procuro ligar-me a founders, designers, programadores, investidores,
+            mentores e pessoas com vontade de construir algo novo.
+          </p>
+        </section>
+
+        <section class="glass rounded-3xl p-6">
+          <h2 class="text-2xl font-black mb-4">O que procuro agora</h2>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-black/30 rounded-2xl p-5">
+              <h3 class="font-bold text-lg mb-2">🚀 Testers</h3>
+              <p class="text-gray-400">Pessoas para testar a primeira versão da plataforma.</p>
+            </div>
+
+            <div class="bg-black/30 rounded-2xl p-5">
+              <h3 class="font-bold text-lg mb-2">🤝 Parceiros</h3>
+              <p class="text-gray-400">Criadores, developers e pessoas com visão de produto.</p>
+            </div>
+
+            <div class="bg-black/30 rounded-2xl p-5">
+              <h3 class="font-bold text-lg mb-2">💼 Clientes beta</h3>
+              <p class="text-gray-400">Empresas ou profissionais interessados em networking verificado.</p>
+            </div>
+
+            <div class="bg-black/30 rounded-2xl p-5">
+              <h3 class="font-bold text-lg mb-2">💡 Mentores</h3>
+              <p class="text-gray-400">Pessoas com experiência em startups, comunidades e monetização.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="glass rounded-3xl p-6">
+          <h2 class="text-2xl font-black mb-4">Publicações recentes</h2>
+
+          <article class="bg-black/30 rounded-2xl p-5 mb-4">
+            <span class="inline-block mb-3 bg-purple-500/20 text-purple-200 px-3 py-1 rounded-full text-sm">
+              🚀 Parceria
+            </span>
+
+            <p class="text-gray-200">
+              Estou a desenvolver o INNER CIRCLE™, uma rede social baseada em confiança,
+              oportunidades reais e perfis verificados. Procuro primeiros membros.
+            </p>
+
+            <div class="flex gap-4 mt-4 text-sm text-gray-400">
+              <button>⭐ 24 confiaram</button>
+              <button>💬 8 comentários</button>
+            </div>
+          </article>
+
+          <article class="bg-black/30 rounded-2xl p-5">
+            <span class="inline-block mb-3 bg-green-500/20 text-green-200 px-3 py-1 rounded-full text-sm">
+              💡 Ideia
+            </span>
+
+            <p class="text-gray-200">
+              E se uma rede social avaliasse pessoas pela confiança, colaboração e valor,
+              em vez de seguidores e likes?
+            </p>
+
+            <div class="flex gap-4 mt-4 text-sm text-gray-400">
+              <button>⭐ 41 confiaram</button>
+              <button>💬 13 comentários</button>
+            </div>
+          </article>
+        </section>
+
+      </section>
+    </div>
+  </main>
+
+</body>
+</html>
