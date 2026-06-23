@@ -1,249 +1,256 @@
 <!DOCTYPE html>
-<html lang="pt-PT">
+<html lang="pt">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>INNER CIRCLE™ — Uma conversa pode mudar uma vida</title>
-  <link rel="icon" type="image/png" href="https://i.postimg.cc/tZ3CJ40n/favicon.png">
-  <link rel="apple-touch-icon" sizes="192x192" href="https://i.postimg.cc/tZ3CJ403/icon-192.png">
-  <link rel="icon" sizes="512x512" href="https://i.postimg.cc/34XJNxMj/icon-512.png">
-  <meta name="theme-color" content="#050505">
-  <meta property="og:title" content="INNER CIRCLE™">
-  <meta property="og:description" content="Uma conversa pode mudar uma vida.">
-  <meta property="og:image" content="https://i.postimg.cc/bDxNrwXH/icon-1024.png">
-  <meta property="og:type" content="website">
+  <title>INNER CIRCLE™ — Pessoas reais. Oportunidades reais.</title>
+
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brandBlack: '#050505', brandDark: '#0B0B0B', brandCard: '#121212',
-            brandGold: { light: '#f3e5ab', DEFAULT: '#d4af37', dark: '#aa841e' },
-            brandGray: '#bdb5a7', brandMuted: '#777777'
-          },
-          fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Cinzel', 'serif'] }
-        }
-      }
-    }
-  </script>
+
   <style>
-    body{background-color:#050505;color:#f5f1e8;font-family:'Inter',sans-serif}.gold-gradient-bg{background:radial-gradient(circle at top,rgba(212,175,55,.12),transparent 50%),linear-gradient(180deg,#050505 0%,#0c0c0c 100%)}.gold-text-glow{text-shadow:0 0 30px rgba(212,175,55,.35)}.radar-circle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);border:1px solid rgba(212,175,55,.15);border-radius:50%;animation:ripple 4s infinite cubic-bezier(.1,.8,.3,1)}.radar-circle:nth-child(2){animation-delay:1.3s}.radar-circle:nth-child(3){animation-delay:2.6s}@keyframes ripple{0%{width:100px;height:100px;opacity:1;border-color:rgba(212,175,55,.4)}100%{width:700px;height:700px;opacity:0;border-color:rgba(212,175,55,0)}}::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:#050505}::-webkit-scrollbar-thumb{background:#d4af37;border-radius:999px}.premium-input{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);transition:all .3s cubic-bezier(.4,0,.2,1)}.premium-input:focus{border-color:#d4af37;background:rgba(255,255,255,.07);box-shadow:0 0 15px rgba(212,175,55,.15)}.badge{display:inline-block;color:#d4af37;border:1px solid rgba(212,175,55,.45);border-radius:999px;padding:10px 18px;font-size:13px;margin-bottom:24px;letter-spacing:1px}
+    body {
+      background: #050816;
+      color: white;
+      font-family: Inter, system-ui, sans-serif;
+    }
+
+    .glass {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      backdrop-filter: blur(18px);
+    }
+
+    .glow {
+      box-shadow: 0 0 80px rgba(124,58,237,0.45);
+    }
+
+    .badge {
+      background: linear-gradient(135deg, #8b5cf6, #ec4899);
+    }
   </style>
 </head>
-<body class="gold-gradient-bg min-h-screen flex flex-col justify-between overflow-x-hidden">
-  <nav class="border-b border-white/5 bg-brandBlack/80 backdrop-blur-md sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-      <div class="flex items-center space-x-3 cursor-pointer" onclick="showView('landing')">
-        <div class="w-10 h-10 rounded-full border border-brandGold/70 flex items-center justify-center bg-brandGold/5 overflow-hidden shadow-[0_0_18px_rgba(212,175,55,0.18)]"><img src="https://i.postimg.cc/tZ3CJ403/icon-192.png" alt="INNER CIRCLE icon" class="w-full h-full object-cover"></div>
-        <span class="font-serif tracking-[0.25em] text-sm md:text-base font-bold text-white">INNER CIRCLE<span class="text-brandGold">™</span></span>
+
+<body class="min-h-screen overflow-x-hidden">
+
+  <!-- NAV -->
+  <header class="fixed top-0 left-0 w-full z-50 glass">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="text-xl font-black tracking-wide">
+        INNER CIRCLE™
       </div>
-      <div class="flex items-center space-x-4">
-        
-        <button onclick="startQuestionnaire()" class="text-xs md:text-sm font-semibold text-brandGold border border-brandGold/40 px-4 py-2 rounded-full hover:bg-brandGold hover:text-brandBlack transition duration-300">Encontrar Conexão</button>
+
+      <nav class="hidden md:flex gap-8 text-sm text-gray-300">
+        <a href="#como" class="hover:text-white">Como funciona</a>
+        <a href="#founders" class="hover:text-white">Founders</a>
+        <a href="#beneficios" class="hover:text-white">Benefícios</a>
+        <a href="#entrar" class="hover:text-white">Entrar</a>
+      </nav>
+
+      <a href="#entrar" class="bg-white text-black px-5 py-2 rounded-full font-semibold">
+        Ser Founder
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative pt-36 pb-24 px-6">
+    <div class="absolute inset-0 bg-gradient-to-br from-purple-900/40 via-transparent to-pink-900/30"></div>
+
+    <div class="relative max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center">
+
+      <div>
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6 text-sm text-purple-200">
+          🌍 Rede social europeia baseada em confiança
+        </div>
+
+        <h1 class="text-5xl md:text-7xl font-black leading-tight mb-6">
+          Pessoas reais.<br>
+          Oportunidades reais.<br>
+          <span class="text-purple-400">Confiança real.</span>
+        </h1>
+
+        <p class="text-xl text-gray-300 mb-8 max-w-xl">
+          INNER CIRCLE™ liga pessoas verificadas por objetivos, país, idioma,
+          interesses e oportunidades. Menos likes. Mais relações úteis.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#entrar" class="bg-purple-500 hover:bg-purple-600 px-8 py-4 rounded-2xl font-bold text-center">
+            Entrar como Founder
+          </a>
+          <a href="#como" class="glass px-8 py-4 rounded-2xl font-bold text-center">
+            Ver como funciona
+          </a>
+        </div>
+
+        <p class="text-sm text-gray-400 mt-6">
+          Apenas os primeiros 100 membros recebem o selo IC Founder.
+        </p>
+      </div>
+
+      <div class="glass rounded-3xl p-6 glow">
+        <div class="bg-black/30 rounded-2xl p-5 mb-4">
+          <div class="flex items-center gap-4">
+            <div class="w-14 h-14 rounded-full bg-gradient-to-br from-purple-500 to-pink-500"></div>
+            <div>
+              <h3 class="font-bold">Maria Silva</h3>
+              <p class="text-gray-400 text-sm">Mentora • Portugal 🇵🇹</p>
+            </div>
+            <span class="ml-auto badge px-3 py-1 rounded-full text-xs font-bold">IC Verified</span>
+          </div>
+
+          <p class="mt-5 text-gray-300">
+            Procuro parceiros para projeto de IA aplicada a negócios locais.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div class="glass rounded-2xl p-4">
+            <p class="text-3xl font-black">92%</p>
+            <p class="text-sm text-gray-400">Índice de confiança</p>
+          </div>
+
+          <div class="glass rounded-2xl p-4">
+            <p class="text-3xl font-black">14</p>
+            <p class="text-sm text-gray-400">Oportunidades</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section id="como" class="py-24 px-6">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-black mb-12 text-center">
+        Como funciona
+      </h2>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="glass rounded-3xl p-8">
+          <h3 class="text-2xl font-bold mb-3">1. Cria o teu perfil</h3>
+          <p class="text-gray-300">
+            Mostra quem és, o que procuras, o que ofereces e onde queres chegar.
+          </p>
+        </div>
+
+        <div class="glass rounded-3xl p-8">
+          <h3 class="text-2xl font-bold mb-3">2. Recebe verificação</h3>
+          <p class="text-gray-300">
+            Perfis humanos, selos de confiança e reputação baseada em ações reais.
+          </p>
+        </div>
+
+        <div class="glass rounded-3xl p-8">
+          <h3 class="text-2xl font-bold mb-3">3. Encontra oportunidades</h3>
+          <p class="text-gray-300">
+            A IA sugere contactos, mentores, clientes, parceiros e projetos.
+          </p>
+        </div>
       </div>
     </div>
-  </nav>
+  </section>
 
-  <div id="toast" class="fixed top-24 right-6 z-50 transform translate-x-96 transition-transform duration-300 bg-brandDark border border-brandGold/30 p-4 rounded-xl shadow-2xl max-w-sm hidden"><div><h4 class="font-bold text-sm text-brandGold" id="toast-title">Notificação</h4><p class="text-xs text-brandGray mt-1" id="toast-message">Mensagem...</p></div></div>
+  <!-- BENEFÍCIOS -->
+  <section id="beneficios" class="py-24 px-6 bg-white/5">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-black mb-12 text-center">
+        Uma rede social com propósito
+      </h2>
 
-  <div id="api-modal" class="fixed inset-0 z-50 bg-brandBlack/80 backdrop-blur-md flex items-center justify-center p-6 hidden">
-    <div class="bg-brandDark border border-brandGold/30 p-8 rounded-3xl max-w-md w-full space-y-6 relative"><h3 class="font-serif text-2xl font-bold text-white">Configuração de IA Avançada</h3><p class="text-xs text-brandGray">Opcional. Para produto público, usa backend/Supabase Edge Function para proteger a chave.</p><input type="password" id="gemini-key-input" placeholder="AIzaSy..." class="w-full bg-brandCard border border-white/10 p-3 rounded-xl text-white outline-none focus:border-brandGold text-sm"><div class="flex space-x-3"><button onclick="saveApiKey()" class="flex-grow py-3 bg-brandGold text-brandBlack font-bold rounded-xl text-xs hover:bg-brandGold-light transition">Ativar Gemini AI</button><button onclick="clearApiKey()" class="px-4 py-3 bg-white/5 text-brandGray rounded-xl text-xs hover:text-white transition">Limpar</button></div></div>
-  </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="glass rounded-3xl p-6">
+          <h3 class="font-bold text-xl mb-3">🌍 Tradução global</h3>
+          <p class="text-gray-300">Fala com pessoas de qualquer país.</p>
+        </div>
 
-  <div id="confirm-modal" class="fixed inset-0 z-50 bg-brandBlack/85 backdrop-blur-sm flex items-center justify-center p-6 hidden"><div class="bg-brandDark border border-red-500/30 p-8 rounded-3xl max-w-md w-full space-y-6 text-center"><div class="w-16 h-16 rounded-full bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-500 mx-auto text-2xl">⚠</div><h3 class="font-serif text-2xl font-bold text-white">Tens a certeza?</h3><p class="text-sm text-brandGray">Isto apaga todos os inscritos guardados neste navegador.</p><div class="flex gap-4"><button onclick="confirmClearList()" class="flex-grow py-3 bg-red-800 text-white font-bold rounded-xl text-xs hover:bg-red-700 transition">Apagar</button><button onclick="closeClearConfirmModal()" class="flex-grow py-3 bg-white/5 text-brandGray rounded-xl text-xs hover:text-white transition">Cancelar</button></div></div></div>
+        <div class="glass rounded-3xl p-6">
+          <h3 class="font-bold text-xl mb-3">⭐ Reputação real</h3>
+          <p class="text-gray-300">Confiança em vez de seguidores vazios.</p>
+        </div>
 
-  <main id="view-landing" class="flex-grow">
-    <header class="min-h-[80vh] flex items-center justify-center px-6 py-12 text-center relative overflow-hidden"><div class="max-w-4xl mx-auto z-10 space-y-8"><div class="inline-block px-4 py-1.5 border border-brandGold/40 rounded-full bg-brandGold/5 text-brandGold font-medium tracking-[0.2em] text-xs uppercase animate-pulse">INNER CIRCLE™ · AI HUMAN MATCHING</div><h1 class="font-serif text-4xl sm:text-6xl md:text-8xl leading-none font-bold tracking-tight text-white">Uma conversa pode <br><span class="text-brandGold gold-text-glow">mudar uma vida.</span></h1><p class="text-base sm:text-lg md:text-2xl text-brandGray max-w-2xl mx-auto font-light leading-relaxed">Todos os dias, a IA escolhe uma única pessoa com potencial real para criar uma ligação humana, estratégica ou transformadora contigo.</p><div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4"><button onclick="startQuestionnaire()" class="w-full sm:w-auto px-8 py-4 bg-brandGold text-brandBlack font-extrabold rounded-xl text-lg hover:shadow-lg hover:shadow-brandGold/25 transform hover:-translate-y-0.5 transition duration-300">Encontrar a minha conexão</button><a href="#como-funciona" class="w-full sm:w-auto px-8 py-4 bg-white/5 border border-white/10 hover:bg-white/10 text-white font-bold rounded-xl text-lg transition duration-300">Como funciona</a></div></div><div class="absolute top-1/4 left-1/4 w-72 h-72 bg-brandGold/5 rounded-full blur-[100px] pointer-events-none"></div><div class="absolute bottom-1/4 right-1/4 w-72 h-72 bg-brandGold/10 rounded-full blur-[130px] pointer-events-none"></div></header>
-    <section id="como-funciona" class="py-20 px-6 max-w-6xl mx-auto border-t border-white/5 scroll-mt-20"><div class="text-center mb-16 space-y-4"><h2 class="font-serif text-3xl md:text-5xl font-bold">Menos seguidores. <span class="text-brandGold">Mais conversas reais.</span></h2><p class="text-base md:text-lg text-brandGray max-w-2xl mx-auto">O INNER CIRCLE™ não é uma rede social tradicional. Não há feed infinito, likes vazios ou ruído constante. Existe apenas uma missão: aproximar pessoas certas através de conversas com significado.</p></div><div class="grid grid-cols-1 md:grid-cols-3 gap-8"><div class="bg-brandCard border border-white/5 p-8 rounded-2xl hover:border-brandGold/20 transition duration-300 space-y-4"><div class="w-12 h-12 rounded-xl bg-brandGold/10 flex items-center justify-center text-brandGold font-bold text-xl">1</div><h3 class="text-xl font-bold text-white font-serif">Respondes ao questionário</h3><p class="text-brandGray text-sm leading-relaxed">A plataforma entende os teus valores, ambições, interesses e desafios.</p></div><div class="bg-brandCard border border-white/5 p-8 rounded-2xl hover:border-brandGold/20 transition duration-300 space-y-4"><div class="w-12 h-12 rounded-xl bg-brandGold/10 flex items-center justify-center text-brandGold font-bold text-xl">2</div><h3 class="text-xl font-bold text-white font-serif">A IA analisa compatibilidades</h3><p class="text-brandGray text-sm leading-relaxed">Cruza mentalidade, objetivos, experiências e energia humana.</p></div><div class="bg-brandCard border border-white/5 p-8 rounded-2xl hover:border-brandGold/20 transition duration-300 space-y-4"><div class="w-12 h-12 rounded-xl bg-brandGold/10 flex items-center justify-center text-brandGold font-bold text-xl">3</div><h3 class="text-xl font-bold text-white font-serif">Recebes uma conexão por dia</h3><p class="text-brandGray text-sm leading-relaxed">Apenas uma pessoa, escolhida com intenção.</p></div></div></section>
-    <section class="py-20 bg-brandDark border-y border-brandGold/20 text-center px-6 relative overflow-hidden"><h2 class="font-serif text-3xl md:text-5xl font-bold leading-tight">O mundo não precisa de mais contactos. <br class="hidden md:inline">Precisa de <span class="text-brandGold">melhores encontros.</span></h2></section>
-    <section class="py-20 px-6 max-w-6xl mx-auto"><div class="text-center mb-16 space-y-4"><h2 class="font-serif text-3xl md:text-5xl font-bold">Para quem é?</h2><p class="text-base md:text-lg text-brandGray max-w-2xl mx-auto">Para conversas profundas, networking de qualidade, amizade inteligente, crescimento pessoal e ligações profissionais com valor.</p></div><div class="grid grid-cols-1 md:grid-cols-3 gap-8"><div class="bg-brandCard border border-white/5 p-8 rounded-2xl"><h3 class="text-xl font-bold text-brandGold font-serif mb-4">Executivos</h3><p class="text-brandGray text-sm leading-relaxed">Profissionais ambiciosos, discretos e focados em crescimento.</p></div><div class="bg-brandCard border border-white/5 p-8 rounded-2xl"><h3 class="text-xl font-bold text-brandGold font-serif mb-4">Criadores</h3><p class="text-brandGray text-sm leading-relaxed">Artistas, escritores, empreendedores e criativos.</p></div><div class="bg-brandCard border border-white/5 p-8 rounded-2xl"><h3 class="text-xl font-bold text-brandGold font-serif mb-4">Investidores</h3><p class="text-brandGray text-sm leading-relaxed">Pessoas interessadas em mentes estratégicas e oportunidades fora do ruído.</p></div></div></section>
-    <section class="py-20 px-6 max-w-4xl mx-auto border-t border-white/5"><div class="text-center mb-16 space-y-4"><h2 class="font-serif text-3xl md:text-5xl font-bold">Modelo Inicial</h2><p class="text-brandGray text-sm md:text-base max-w-xl mx-auto">Uma conexão diária gratuita, com possibilidade de plano premium.</p></div><div class="grid grid-cols-1 md:grid-cols-2 gap-8"><div class="bg-brandCard border border-white/5 p-8 rounded-2xl"><h3 class="text-xl font-bold text-white font-serif">Plano Gratuito</h3><p class="text-brandGray text-sm leading-relaxed mt-4">Uma conexão diária e sugestão de conversa.</p><div class="text-2xl font-bold text-white font-serif pt-4">€0</div></div><div class="bg-brandDark border-2 border-brandGold/40 p-8 rounded-2xl relative"><span class="absolute top-4 right-4 text-[10px] bg-brandGold text-brandBlack font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Fundador</span><h3 class="text-xl font-bold text-brandGold font-serif">Premium — €9,99/mês</h3><p class="text-brandGray text-sm leading-relaxed mt-4">Mais conexões, relatórios e círculos privados.</p><div class="text-2xl font-bold text-brandGold font-serif pt-4">€9,99</div></div></div></section>
-    <section class="py-20 text-center space-y-6 max-w-3xl mx-auto px-6"><h2 class="font-serif text-3xl md:text-5xl font-bold">Começa pela tua primeira ligação.</h2><p class="text-brandGray max-w-lg mx-auto text-sm md:text-base">Talvez a próxima pessoa mais importante da tua vida ainda não te conheça.</p><div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4"><button onclick="startQuestionnaire()" class="w-full sm:w-auto px-8 py-4 bg-brandGold text-brandBlack font-extrabold rounded-xl text-lg hover:shadow-lg hover:shadow-brandGold/25 transition">Começar agora</button><button onclick="showView('waitlist')" class="w-full sm:w-auto px-8 py-4 bg-brandCard border border-white/10 text-white rounded-xl text-lg hover:bg-white/5 transition">Entrar na lista de espera</button></div></section>
-  </main>
+        <div class="glass rounded-3xl p-6">
+          <h3 class="font-bold text-xl mb-3">💼 Oportunidades</h3>
+          <p class="text-gray-300">Negócios, emprego, parcerias e mentoria.</p>
+        </div>
 
-  <main id="view-questionnaire" class="hidden flex-grow py-12 px-6 max-w-3xl mx-auto w-full"><div class="bg-brandDark border border-white/10 p-6 md:p-12 rounded-3xl space-y-8 relative overflow-hidden"><div class="space-y-3"><div class="text-[10px] text-brandGold tracking-[0.2em] font-bold uppercase">INNER CIRCLE™ · PERFIL HUMANO</div><h2 class="text-2xl sm:text-4xl font-serif font-bold text-white">Descobre que tipo de pessoa pode acrescentar valor real à tua vida.</h2><p class="text-sm text-brandGray">Responde com sinceridade total.</p></div><div class="w-full bg-white/5 h-1.5 rounded-full overflow-hidden"><div id="progress-bar-fill" class="bg-brandGold h-full w-1/3 transition-all duration-500"></div></div><form id="innerCircleForm" class="space-y-6" onsubmit="event.preventDefault();"><div id="form-step-1" class="space-y-6"><div class="text-sm font-semibold text-brandGold uppercase tracking-wider">Parte 1 de 3</div><input type="text" id="q-nome" placeholder="O teu nome" class="w-full p-4 rounded-xl premium-input text-white text-sm outline-none" required><input type="text" id="q-local" placeholder="País / cidade" class="w-full p-4 rounded-xl premium-input text-white text-sm outline-none" required><textarea id="q-fase" placeholder="Qual é a tua fase atual de vida?" class="w-full p-4 rounded-xl premium-input text-white text-sm outline-none h-24" required></textarea></div><div id="form-step-2" class="hidden space-y-6"><div class="text-sm font-semibold text-brandGold uppercase tracking-wider">Parte 2 de 3</div><select id="q-procura" class="w-full p-4 rounded-xl premium-input text-white text-sm outline-none"><option>Uma conversa profunda</option><option>Networking de alto nível</option><option>Parceiro de negócios</option><option>Amizade verdadeira</option><option>Inspiração e clareza</option><option>Mentoria ou orientação</option></select><textarea id="q-objetivo" placeholder="Maior objetivo para os próximos 12 meses" class="w-full p-4 rounded-xl premium-input text-white text-sm outline-none h-24" required></textarea><textarea id="q-tipoPessoa" placeholder="Que tipo de pessoa gostarias de conhecer?" class="w-full p-4 rounded-xl premium-input text-white text-sm outline-none h-24" required></textarea></div><div id="form-step-3" class="hidden space-y-6"><div class="text-sm font-semibold text-brandGold uppercase tracking-wider">Parte 3 de 3</div><textarea id="q-oferta" placeholder="O que tens para oferecer numa conversa?" class="w-full p-4 rounded-xl premium-input text-white text-sm outline-none h-24" required></textarea><textarea id="q-temas" placeholder="Que temas mais te interessam?" class="w-full p-4 rounded-xl premium-input text-white text-sm outline-none h-24" required></textarea><select id="q-energia" class="w-full p-4 rounded-xl premium-input text-white text-sm outline-none"><option>Profunda e emocional</option><option>Estratégica e profissional</option><option>Criativa e inspiradora</option><option>Leve e humana</option><option>Ambiciosa e orientada a objetivos</option></select></div><div class="flex justify-between items-center pt-6 border-t border-white/5"><button type="button" id="form-back-btn" onclick="handleStepBack()" class="px-6 py-3 bg-white/5 border border-white/10 rounded-xl text-xs font-semibold text-brandGray hover:text-white transition disabled:opacity-50">← Voltar</button><button type="button" id="form-next-btn" onclick="handleStepNext()" class="px-8 py-4 bg-brandGold text-brandBlack font-extrabold rounded-xl text-sm hover:shadow-lg hover:shadow-brandGold/20 transition duration-200">Seguinte →</button></div></form><div class="text-center"><button onclick="showView('landing')" class="text-xs text-brandMuted hover:text-brandGold transition mt-4 inline-block">← Cancelar</button></div></div></main>
+        <div class="glass rounded-3xl p-6">
+          <h3 class="font-bold text-xl mb-3">🔒 Pessoas verificadas</h3>
+          <p class="text-gray-300">Menos bots. Mais humanos reais.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <main id="view-matching" class="hidden flex-grow flex flex-col items-center justify-center relative overflow-hidden px-6 py-12"><div class="relative w-96 h-96 flex items-center justify-center"><div class="radar-circle"></div><div class="radar-circle"></div><div class="radar-circle"></div><div class="relative z-10 w-28 h-28 rounded-full border border-brandGold/40 bg-brandDark flex items-center justify-center shadow-2xl shadow-brandGold/15 animate-pulse"><span class="font-serif text-brandGold text-xl font-bold tracking-widest">INNER</span></div></div><div class="mt-12 text-center max-w-md space-y-3 z-10"><h3 class="text-xl sm:text-2xl font-serif text-white font-bold tracking-wide">🧠 IA a analisar compatibilidades humanas...</h3><p id="matching-status-log" class="text-brandGold text-xs tracking-[0.15em] uppercase font-bold animate-pulse">A cruzar valores e objetivos de vida</p></div></main>
+  <!-- FOUNDERS -->
+  <section id="founders" class="py-24 px-6">
+    <div class="max-w-5xl mx-auto text-center glass rounded-3xl p-10">
+      <h2 class="text-4xl md:text-5xl font-black mb-6">
+        Junta-te aos primeiros 100 Founders
+      </h2>
 
-  <main id="view-dashboard" class="hidden flex-grow py-8 px-6 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch"><div class="lg:col-span-5 bg-brandDark border border-brandGold/25 rounded-3xl p-6 md:p-8 flex flex-col justify-between space-y-6 relative overflow-hidden"><div><span class="text-[10px] text-brandGold tracking-widest uppercase font-extrabold px-3 py-1 border border-brandGold/40 rounded-full bg-brandGold/5 inline-block">INNER CIRCLE™ · MATCH DETECTADO</span><h2 id="match-view-name" class="font-serif text-2xl sm:text-3xl font-bold text-white mt-3">Match</h2><p id="match-view-role" class="text-brandGray text-xs sm:text-sm mt-0.5">Perfil</p></div><div class="text-5xl font-extrabold text-brandGold font-serif" id="match-view-compat">94%</div><div class="bg-brandGold/5 border border-brandGold/25 p-5 rounded-2xl space-y-3"><h3 class="text-sm font-bold text-brandGold uppercase tracking-wider">Perfil de Conexão</h3><p id="match-view-bio" class="text-xs sm:text-sm text-white/90 leading-relaxed"></p><p id="match-view-interesses" class="text-xs text-brandGray"></p><p id="match-view-energia" class="text-xs text-brandGray"></p></div><div class="bg-[#111] p-5 rounded-xl border border-white/5"><h3 class="text-xs font-bold text-brandGold uppercase tracking-wider mb-2">💬 Quebra-gelo sugerido pela IA</h3><p id="match-view-quebraGelo" class="text-xs sm:text-sm text-white italic leading-relaxed"></p><button onclick="useSuggestedIcebreaker()" class="mt-3 text-[10px] text-brandGold hover:text-white font-semibold underline block transition">Usar na conversa</button></div><div class="flex gap-3 flex-wrap"><button onclick="startQuestionnaire()" class="px-5 py-3 bg-brandGold hover:bg-brandGold-light text-brandBlack font-bold rounded-xl text-xs transition duration-200">Nova Análise</button><button onclick="showView('waitlist')" class="px-5 py-3 border border-white/10 text-white rounded-xl text-xs hover:bg-white/5 transition duration-200">Lista Premium</button></div></div><div class="lg:col-span-7 bg-brandDark border border-white/10 rounded-3xl flex flex-col justify-between overflow-hidden min-h-[550px] lg:min-h-[600px] relative"><div class="bg-brandCard/90 border-b border-white/5 px-6 py-4 flex items-center justify-between"><div><h3 class="text-sm font-bold text-white" id="chat-active-name">Match</h3><p class="text-[9px] text-brandMuted uppercase tracking-wider">Sala aberta por 24 horas</p></div><button onclick="exportChatTranscript()" class="text-xs text-brandGold hover:text-white font-semibold border border-brandGold/20 px-3 py-1.5 rounded-full bg-brandGold/5 transition duration-200">Copiar Conversa</button></div><div id="chat-message-wall" class="flex-grow p-6 overflow-y-auto space-y-4 max-h-[400px] lg:max-h-[500px]"><div class="bg-brandGold/5 border border-brandGold/15 p-4 rounded-xl text-center space-y-1 max-w-md mx-auto"><span class="text-[9px] text-brandGold uppercase tracking-widest font-extrabold">Afinidade Encontrada</span><p class="text-xs text-brandGray">O algoritmo cruzou ambições e determinou que vocês devem conversar hoje.</p></div><div class="flex items-start space-x-3 max-w-[85%]"><div class="w-8 h-8 rounded-full border border-brandGold/40 flex-shrink-0 flex items-center justify-center font-serif text-brandGold text-xs font-bold bg-brandCard">C</div><div class="bg-brandCard border border-white/5 p-4 rounded-2xl rounded-tl-none"><p id="chat-first-message-text" class="text-xs sm:text-sm text-white">Olá!</p><span class="text-[9px] text-brandMuted mt-1 block text-right">Agora mesmo</span></div></div><div id="chat-typing-bubble" class="flex items-center space-x-2 hidden"><span class="text-xs text-brandGray italic">O teu Match está a digitar...</span></div></div><div class="p-4 bg-brandCard/50 border-t border-white/5"><form id="chat-interaction-form" onsubmit="triggerSendMessage(event)" class="flex items-center space-x-3"><input type="text" id="chat-input-field" placeholder="Escreve uma resposta..." class="flex-grow bg-brandDark border border-white/10 focus:border-brandGold p-4 rounded-xl text-white outline-none text-xs sm:text-sm transition duration-200"><button type="submit" class="px-6 py-4 bg-brandGold hover:bg-brandGold-light text-brandBlack font-bold rounded-xl text-xs sm:text-sm transition-all duration-300">Enviar</button></form></div></div></main>
+      <p class="text-gray-300 text-lg mb-8">
+        Os primeiros membros ajudam a construir a comunidade, recebem destaque,
+        selo IC Founder e acesso antecipado às funcionalidades premium.
+      </p>
 
-  <main id="view-waitlist" class="hidden flex-grow py-12 px-6 max-w-5xl mx-auto w-full"><div class="space-y-8 relative overflow-hidden text-center"><div class="badge">INNER CIRCLE™ · FOUNDING MEMBERS</div><h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-bold text-white tracking-tight leading-none">Entra antes do mundo descobrir. <br><span class="text-brandGold gold-text-glow">Os primeiros 100 membros serão fundadores.</span></h1><p class="text-brandGray text-sm sm:text-lg max-w-3xl mx-auto leading-relaxed">Estamos a criar uma plataforma onde a IA apresenta uma pessoa por dia com potencial real.</p><div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left pt-6"><div class="bg-brandCard border border-white/5 p-6 rounded-2xl"><h3 class="text-lg font-bold text-brandGold font-serif mb-2">Plano Gratuito</h3><p class="text-xs text-brandGray leading-relaxed">Uma conexão por dia.</p></div><div class="bg-brandCard border border-white/5 p-6 rounded-2xl"><h3 class="text-lg font-bold text-brandGold font-serif mb-2">Premium — €9,99/mês</h3><p class="text-xs text-brandGray leading-relaxed">Mais conexões e relatórios.</p></div><div class="bg-brandCard border border-white/5 p-6 rounded-2xl"><h3 class="text-lg font-bold text-brandGold font-serif mb-2">Founder Badge</h3><p class="text-xs text-brandGray leading-relaxed">Primeiros 100 membros.</p></div></div><form id="waitlistForm" onsubmit="handleWaitlistFormSubmit(event)" class="bg-brandGold/5 border border-brandGold/30 rounded-3xl p-6 md:p-10 text-left max-w-2xl mx-auto space-y-4"><h2 class="font-serif text-2xl font-bold text-white border-b border-brandGold/20 pb-2">Entrar na lista de espera</h2><input type="text" id="w-nome" placeholder="Nome" required class="w-full bg-brandBlack/60 border border-white/10 p-4 rounded-xl text-white outline-none focus:border-brandGold text-sm"><input type="email" id="w-email" placeholder="Email" required class="w-full bg-brandBlack/60 border border-white/10 p-4 rounded-xl text-white outline-none focus:border-brandGold text-sm"><select id="w-perfil" class="w-full bg-brandBlack/60 border border-white/10 p-4 rounded-xl text-white outline-none focus:border-brandGold text-sm"><option>Empreendedor</option><option>Executivo</option><option>Criador</option><option>Investidor</option><option>Profissional em transição</option><option>Outro</option></select><textarea id="w-motivo" required class="w-full bg-brandBlack/60 border border-white/10 p-4 rounded-xl text-white outline-none focus:border-brandGold text-sm h-28 resize-none" placeholder="Porque queres entrar?"></textarea><button type="submit" class="w-full py-4 bg-brandGold text-brandBlack font-black rounded-xl text-sm hover:shadow-lg hover:shadow-brandGold/25 transition">Quero ser membro fundador</button><div class="success hidden p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-200 text-xs sm:text-sm text-center" id="success">Pedido registado com sucesso.</div></form><button onclick="goHome(event)" class="text-xs text-brandMuted hover:text-brandGold transition mt-4 inline-block">← Voltar</button></div></main>
+      <div class="flex flex-wrap justify-center gap-3">
+        <span class="badge px-4 py-2 rounded-full font-bold">IC Founder</span>
+        <span class="glass px-4 py-2 rounded-full">IC Verified</span>
+        <span class="glass px-4 py-2 rounded-full">IC Trusted</span>
+        <span class="glass px-4 py-2 rounded-full">IC Mentor</span>
+      </div>
+    </div>
+  </section>
 
-  <main id="view-admin" class="hidden flex-grow py-12 px-6 max-w-5xl mx-auto w-full"><div class="space-y-8"><div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-white/10 pb-6"><div><div class="text-[10px] text-brandGold tracking-[0.2em] font-bold uppercase">INNER CIRCLE™ · ADMIN</div><h1 class="font-serif text-3xl sm:text-5xl font-bold text-white mt-1">Lista de Espera</h1><p class="text-brandGray text-xs sm:text-sm mt-1">Membros registados neste navegador.</p></div><div class="flex gap-3"><button onclick="exportarCSV()" class="px-5 py-3 bg-brandGold text-brandBlack hover:bg-brandGold-light font-bold rounded-xl text-xs transition">Exportar CSV</button><button onclick="openClearConfirmModal()" class="px-5 py-3 bg-red-800 hover:bg-red-700 text-white font-bold rounded-xl text-xs transition">Limpar Lista</button></div></div><div id="admin-lista" class="space-y-4"></div><div class="text-center pt-6"><button onclick="showView('landing')" class="text-xs text-brandMuted hover:text-brandGold transition inline-block">← Voltar</button></div></div></main>
+  <!-- FORM -->
+  <section id="entrar" class="py-24 px-6 bg-gradient-to-b from-transparent to-purple-950/40">
+    <div class="max-w-3xl mx-auto glass rounded-3xl p-8 md:p-12">
+      <h2 class="text-4xl font-black mb-4 text-center">
+        Entra na lista Founder
+      </h2>
 
-  <footer class="border-t border-white/5 py-8 text-center text-[10px] text-brandMuted space-y-3 bg-brandBlack/60 mt-12 w-full"><div>INNER CIRCLE™ · Todos os direitos reservados.
-      <span>·</span>
-      <a href="codigo.html" class="hover:text-brandGold transition">Código do Círculo</a>
-      <span>·</span>
-      <a href="perfil.html" class="hover:text-brandGold transition">Perfil Vivo™</a></div><div class="flex flex-wrap justify-center items-center gap-3 md:gap-4"></div></footer>
+      <p class="text-gray-300 text-center mb-8">
+        Deixa os teus dados para seres avisado quando a versão beta abrir.
+      </p>
 
-<script>
-let state={view:'landing',step:1,profile:{},apiKey:'',match:null,history:[]};
-const icebreakerQuestions=["Qual foi a decisão mais difícil que tomaste nos últimos cinco anos?","Se pudesses resolver apenas um problema do mundo, qual escolherias?","Que conversa mudou a tua vida?","O que gostarias que as pessoas percebessem sobre ti mais rapidamente?","Qual é o teu maior objetivo atualmente?","O que aprendeste com o teu maior fracasso?","Qual foi o momento que mais te transformou como pessoa?"];
-function showView(viewId){['landing','questionnaire','matching','dashboard','waitlist','admin'].forEach(v=>document.getElementById('view-'+v).classList.add('hidden'));document.getElementById('view-'+viewId).classList.remove('hidden');state.view=viewId;window.location.hash=viewId;if(viewId==='admin')carregarLista();window.scrollTo({top:0,behavior:'smooth'});}window.addEventListener('load',()=>{const storedKey=localStorage.getItem('ic_gemini_key');if(storedKey){state.apiKey=storedKey;document.getElementById('gemini-key-input').value=storedKey;document.getElementById('api-status-text').innerText='Gemini AI Integrada';}const cached=localStorage.getItem('innerCirclePerfil');if(cached){try{state.profile=JSON.parse(cached);}catch(e){}}const hash=window.location.hash.replace('#','');showView(['landing','questionnaire','matching','dashboard','waitlist','admin'].includes(hash)?hash:'landing');});
-function toggleApiModal() { return; };
-  try{
-    const res=await fetch(`${SUPABASE_URL}/waitlist`,{
-      method:'POST',
-      headers:{
-        'Content-Type':'application/json',
-        'apikey':SUPABASE_ANON_KEY,
-        'Authorization':`Bearer ${SUPABASE_ANON_KEY}`,
-        'Prefer':'return=minimal'
-      },
-      body:JSON.stringify(membro)
-    });
-    if(!res.ok){
-      const err=await res.text();
-      throw new Error(err||'Erro ao guardar no Supabase');
-    }
-    const lista=JSON.parse(localStorage.getItem('innerCircleWaitlist'))||[];
-    lista.push({...membro,data:new Date().toISOString()});
-    localStorage.setItem('innerCircleWaitlist',JSON.stringify(lista));
-    document.getElementById('success').classList.remove('hidden');
-    document.getElementById('waitlistForm').reset();
-    showToast('Sucesso','Registo guardado no Supabase.','success');
-  }catch(err){
-    console.error(err);
-    showToast('Erro','Não foi possível guardar. Confirma a tabela waitlist e as policies no Supabase.','warning');
-  }finally{
-    btn.disabled=false;
-    btn.innerText=originalText;
-  }
-}
-function carregarLista(){const dados=JSON.parse(localStorage.getItem('innerCircleWaitlist'))||[],wrap=document.getElementById('admin-lista');if(!dados.length){wrap.innerHTML='<div class="text-center py-20 border border-white/5 bg-brandCard/40 rounded-3xl"><p class="text-brandGray text-sm">Ainda não há inscritos.</p></div>';return;}wrap.innerHTML=`<div class="text-sm font-semibold text-brandGold uppercase tracking-wider mb-2">Total: ${dados.length}</div>`;[...dados].reverse().forEach(m=>{const card=document.createElement('div');card.className='bg-brandCard border border-white/10 p-6 rounded-2xl space-y-3';card.innerHTML=`<div><strong class="text-white text-base font-serif">${escapeHtml(m.nome||'Sem nome')}</strong><div class="text-xs text-brandGray mt-0.5">${escapeHtml(m.email||'Sem email')}</div></div><span class="text-[10px] bg-brandGold/10 text-brandGold font-bold px-2.5 py-1 rounded-full border border-brandGold/25 uppercase tracking-wide inline-block">${escapeHtml(m.perfil||'Outro')}</span><div class="text-xs text-brandGray leading-relaxed border-t border-white/5 pt-3"><span class="font-bold text-brandGold block mb-1">Motivo:</span>"${escapeHtml(m.motivo||'-')}"</div><div class="text-[9px] text-brandMuted text-right">${m.data?new Date(m.data).toLocaleString('pt-PT'):'-'}</div>`;wrap.appendChild(card)})}function exportarCSV(){const dados=JSON.parse(localStorage.getItem('innerCircleWaitlist'))||[];if(!dados.length){showToast('Aviso','Não há dados.','warning');return;}const csv=[['Nome','Email','Perfil','Motivo','Data'],...dados.map(m=>[m.nome,m.email,m.perfil,m.motivo,m.data])].map(l=>l.map(c=>`"${String(c||'').replace(/"/g,'""')}"`).join(',')).join('\n');const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='inner-circle-waitlist.csv';a.click();URL.revokeObjectURL(url)}function openClearConfirmModal(){document.getElementById('confirm-modal').classList.remove('hidden')}function closeClearConfirmModal(){document.getElementById('confirm-modal').classList.add('hidden')}function confirmClearList(){localStorage.removeItem('innerCircleWaitlist');carregarLista();closeClearConfirmModal();showToast('Lista apagada','Dados locais removidos.','success')}
-function showToast(title,message,type='info'){const t=document.getElementById('toast');document.getElementById('toast-title').innerText=title;document.getElementById('toast-message').innerText=message;t.classList.remove('hidden','translate-x-96');setTimeout(()=>{t.classList.add('translate-x-96');setTimeout(()=>t.classList.add('hidden'),300)},3500)}
-</script>
+      <form class="space-y-4">
+        <input type="text" placeholder="O teu nome"
+          class="w-full px-5 py-4 rounded-2xl bg-black/40 border border-white/10 outline-none">
 
-<script>
-// FINAL OVERRIDES — navegação estável, botão Voltar funcional e Supabase real
-(function () {
-  const VIEWS = ['landing','questionnaire','matching','dashboard','waitlist','admin'];
-  const SUPABASE_REST_URL_FIXED = 'https://mstgnfqxrpbowbypcxcb.supabase.co/rest/v1';
-  const SUPABASE_ANON_KEY_FIXED = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdWJhc2UiLCJyZWYiOiJtc3RnbmZxeHJwYm93YnlwY3hjYiIsInJvbGUiOiJhbm9uIiwiaWF0IjoxNzgxNzkxNjIwLCJleHAiOjIwOTczNjc2MjB9.cbNGYlFVK0Tky2XdLRgpyF5ckY0Ojm_PxUyfreLcVMg';
+        <input type="email" placeholder="O teu email"
+          class="w-full px-5 py-4 rounded-2xl bg-black/40 border border-white/10 outline-none">
 
-  window.showView = function (viewId) {
-    VIEWS.forEach(function (v) {
-      const el = document.getElementById('view-' + v);
-      if (el) el.classList.add('hidden');
-    });
+        <select class="w-full px-5 py-4 rounded-2xl bg-black/40 border border-white/10 outline-none">
+          <option>O que procuras?</option>
+          <option>Negócios</option>
+          <option>Emprego</option>
+          <option>Parcerias</option>
+          <option>Mentoria</option>
+          <option>Investimento</option>
+          <option>Comunidade</option>
+        </select>
 
-    const target = document.getElementById('view-' + viewId) || document.getElementById('view-landing');
-    if (target) target.classList.remove('hidden');
+        <button type="button"
+          class="w-full bg-purple-500 hover:bg-purple-600 py-4 rounded-2xl font-black text-lg">
+          Quero ser Founder
+        </button>
+      </form>
 
-    if (viewId === 'landing') {
-      history.replaceState(null, '', location.pathname);
-    } else {
-      history.replaceState(null, '', '#' + viewId);
-    }
+      <p class="text-xs text-gray-500 text-center mt-5">
+        Sem spam. Apenas novidades importantes sobre o lançamento.
+      </p>
+    </div>
+  </section>
 
-    if (viewId === 'waitlist' && typeof carregarContadorFundadores === 'function') carregarContadorFundadores();
-    if (viewId === 'admin' && typeof carregarLista === 'function') carregarLista();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  window.goHome = function (event) {
-    if (event) event.preventDefault();
-    window.showView('landing');
-    return false;
-  };
-
-  window.carregarContadorFundadores = async function () {
-    const el = document.getElementById('founderCounter');
-    try {
-      const res = await fetch(`${SUPABASE_REST_URL_FIXED}/waitlist?select=id`, {
-        headers: {
-          apikey: SUPABASE_ANON_KEY_FIXED,
-          Authorization: `Bearer ${SUPABASE_ANON_KEY_FIXED}`
-        }
-      });
-      if (!res.ok) throw new Error(await res.text());
-      const data = await res.json();
-      const total = Array.isArray(data) ? data.length : 0;
-      if (el) el.innerText = `Membros Fundadores: ${total} / 100`;
-      return total;
-    } catch (err) {
-      console.warn('Erro contador fundadores:', err);
-      if (el) el.innerText = 'Membros Fundadores: 0 / 100';
-      return 0;
-    }
-  };
-
-  window.handleWaitlistFormSubmit = async function (e) {
-    e.preventDefault();
-    const form = document.getElementById('waitlistForm');
-    const btn = form ? form.querySelector('button[type="submit"]') : null;
-    const originalText = btn ? btn.innerText : '';
-    if (btn) { btn.disabled = true; btn.innerText = 'A guardar...'; }
-
-    const membro = {
-      nome: document.getElementById('w-nome').value.trim(),
-      email: document.getElementById('w-email').value.trim(),
-      perfil: document.getElementById('w-perfil').value,
-      motivo: document.getElementById('w-motivo').value.trim()
-    };
-
-    try {
-      const res = await fetch(`${SUPABASE_REST_URL_FIXED}/waitlist`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          apikey: SUPABASE_ANON_KEY_FIXED,
-          Authorization: `Bearer ${SUPABASE_ANON_KEY_FIXED}`,
-          Prefer: 'return=minimal'
-        },
-        body: JSON.stringify(membro)
-      });
-
-      if (!res.ok) throw new Error(await res.text());
-
-      const lista = JSON.parse(localStorage.getItem('innerCircleWaitlist')) || [];
-      lista.push({ ...membro, data: new Date().toISOString() });
-      localStorage.setItem('innerCircleWaitlist', JSON.stringify(lista));
-
-      const total = await window.carregarContadorFundadores();
-      const success = document.getElementById('success');
-      const thankYou = document.getElementById('thankYouBox');
-      const founderPosition = document.getElementById('founderPosition');
-
-      if (success) success.classList.remove('hidden');
-      if (form) form.classList.add('hidden');
-      if (thankYou) thankYou.classList.remove('hidden');
-      if (founderPosition) founderPosition.innerText = `Membro fundador #${total} de 100`;
-      if (form) form.reset();
-      if (typeof showToast === 'function') showToast('Sucesso', 'Registo guardado no Supabase.', 'success');
-    } catch (err) {
-      console.error(err);
-      if (typeof showToast === 'function') showToast('Erro', String(err.message || err).slice(0, 180), 'warning');
-    } finally {
-      if (btn) { btn.disabled = false; btn.innerText = originalText; }
-    }
-  };
-
-  window.resetWaitlistForm = function () {
-    const thankYou = document.getElementById('thankYouBox');
-    const form = document.getElementById('waitlistForm');
-    const success = document.getElementById('success');
-    if (thankYou) thankYou.classList.add('hidden');
-    if (form) form.classList.remove('hidden');
-    if (success) success.classList.add('hidden');
-  };
-
-  document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('button').forEach(function (btn) {
-      const txt = (btn.textContent || '').trim().toLowerCase();
-      if (txt === '← voltar' || txt === 'voltar') btn.onclick = window.goHome;
-    });
-    const hash = location.hash.replace('#','');
-    window.showView(VIEWS.includes(hash) ? hash : 'landing');
-    window.carregarContadorFundadores();
-  });
-})();
-</script>
+  <!-- FOOTER -->
+  <footer class="py-10 px-6 border-t border-white/10">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-4 text-gray-400 text-sm">
+      <p>© 2026 INNER CIRCLE™. Todos os direitos reservados.</p>
+      <p>Pessoas reais. Oportunidades reais. Confiança real.</p>
+    </div>
+  </footer>
 
 </body>
 </html>
